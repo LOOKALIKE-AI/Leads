@@ -53,7 +53,6 @@ for query in QUERIES:
     organic = results.get("organic_results", [])
     
     for r in organic[:10]:  # Take max 10 per query
-        title = r.get("title", "")
         link = r.get("link", "")
         category = guess_category(query)
         

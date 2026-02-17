@@ -1,13 +1,19 @@
 import csv
 import time
 import re
+import os
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
+from dotenv import load_dotenv
+from serpapi import GoogleSearch
 
 # ============================================================
-# HELPERS
+# ENV + GLOBALS
 # ============================================================
+
+load_dotenv()
+SERPAPI_KEY = os.getenv("SERPAPI_KEY")
 
 HEADERS = {
     "User-Agent": (
@@ -18,7 +24,6 @@ HEADERS = {
 
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 
-# Italy-leaning phone regex (+39 / 00 39 / Italian landline/mobile patterns)
 PHONE_RE = re.compile(
     r"(?:(?:\+|00)\s?39\s?)?"
     r"(?:0\d{1,3}|\d{3,4})"
@@ -26,8 +31,26 @@ PHONE_RE = re.compile(
     r"(?:[\s./-]?\d{2,4}){1,3}"
 )
 
+VAT_RE = re.compile(r"\b(?:IT\s*)?(\d{11})\b", re.IGNORECASE)
+
+LEGAL_STRUCT_RE = re.compile(
+    r"\b("
+    r"s\.?\s*r\.?\s*l\.?|"
+    r"s\.?\s*p\.?\s*a\.?|"
+    r"s\.?\s*a\.?\s*s\.?|"
+    r"s\.?\s*n\.?\s*c\.?|"
+    r"unipersonale|"
+    r"societ[aà]\s+cooperativa|coop\.?|"
+    r"ltd|limited|llc|inc\.?|incorporated|corp\.?|gmbh|pty"
+    r")\b",
+    re.IGNORECASE
+)
+
+# ============================================================
+# BASIC HELPERS
+# ============================================================
+
 def extract_domain(url: str):
-    """Extract clean domain from URL."""
     try:
         parsed = urlparse(url.strip())
         domain = (parsed.netloc or "").lower().replace("www.", "")
@@ -36,15 +59,16 @@ def extract_domain(url: str):
         return None
 
 def safe_get(url: str, timeout=15):
-    """Safe HTTP request with timeout."""
+    """Return Response only if status_code == 200, else None."""
     try:
         r = requests.get(url, headers=HEADERS, timeout=timeout, allow_redirects=True)
-        return r
+        if r is not None and r.status_code == 200:
+            return r
+        return None
     except:
         return None
 
 def extract_brand_from_title(soup: BeautifulSoup, url: str) -> str:
-    """Get brand primarily from <title> tag."""
     title = soup.find("title")
     if title:
         brand = title.get_text().strip()
@@ -59,47 +83,41 @@ def extract_brand_from_title(soup: BeautifulSoup, url: str) -> str:
     domain = extract_domain(url)
     if domain:
         return domain.split(".")[0].replace("-", " ").title()
+
     return "Unknown Brand"
 
 def count_skus(base_url: str, soup: BeautifulSoup) -> int:
-    """Count total SKUs from collections page."""
+    """
+    Estimate SKU count from /collections/all. If not available, fallback to homepage product links.
+    """
     try:
         collections_url = urljoin(base_url, "/collections/all")
         r = safe_get(collections_url, timeout=12)
-        if r and r.status_code == 200:
+        if r:
             coll_soup = BeautifulSoup(r.text, "html.parser")
             product_selectors = [
-                'a[href*="/products/"]', 'a[href*="/product/"]',
-                ".product-item", ".product-card", ".grid-item", "[data-product-id]"
+                'a[href*="/products/"]',
+                ".product-item",
+                ".product-card",
+                ".grid-item",
+                "[data-product-id]"
             ]
             max_count = 0
             for selector in product_selectors:
-                count = len(coll_soup.select(selector))
-                max_count = max(max_count, count)
+                max_count = max(max_count, len(coll_soup.select(selector)))
 
             # crude multiplier for pagination; capped
-            return min(max_count * 3, 1000)
+            if max_count > 0:
+                return min(max_count * 3, 1000)
 
         product_links = soup.find_all("a", href=re.compile(r"/products?/"))
         return min(len(product_links), 500)
     except:
-        pass
+        return 10
+
     return 10
 
-def has_visual_search(soup: BeautifulSoup) -> str:
-    """Check if site has product images."""
-    img_selectors = [
-        'img[src*="/products/"]', 'img[data-product]',
-        ".product-image img", "[class*='product'] img",
-        'img[alt*="product"]'
-    ]
-    for selector in img_selectors:
-        if soup.select_one(selector):
-            return "YES"
-    return "NO" if len(soup.find_all("img")) == 0 else "YES"
-
 def has_text_only_search(soup: BeautifulSoup) -> str:
-    """Detect search functionality properly."""
     search_inputs = (
         soup.find("input", {"type": "search"}) or
         soup.find("input", {"name": re.compile(r"q|search|query", re.I)}) or
@@ -121,7 +139,6 @@ def has_text_only_search(soup: BeautifulSoup) -> str:
     return "Y" if has_search and has_products else "N"
 
 def has_refined_ux(soup: BeautifulSoup) -> str:
-    """Check for refined/professional UX."""
     checks = 0
     if soup.find(["nav", "header"]) is not None:
         checks += 1
@@ -134,17 +151,8 @@ def has_refined_ux(soup: BeautifulSoup) -> str:
         checks += 1
     return "Y" if checks >= 2 else "N"
 
-def estimate_sme_scale(sku_count: int) -> str:
-    """SME scale based on product count only."""
-    if sku_count > 500:
-        return "BIG"
-    elif sku_count >= 100:
-        return "MEDIUM"
-    else:
-        return "SMALL"
-
 # ============================================================
-# NEW CONTACT LOGIC (REPLACES OLD)
+# CONTACT EXTRACTION
 # ============================================================
 
 def _normalize_phone(p: str) -> str:
@@ -208,9 +216,9 @@ def _extract_obfuscated_emails(html: str):
 def _discover_contactish_links(soup: BeautifulSoup, base_url: str, limit=15):
     keywords = [
         "contatti", "contatto", "contact", "assistenza", "supporto",
-        "customer", "servizio", "help", "resi", "res", "sped", "shipping",
+        "help", "resi", "sped", "shipping",
         "privacy", "termini", "condizioni", "impressum", "chi-siamo", "about",
-        "lavora", "azienda", "negozio", "dove", "store", "sede"
+        "note legali", "legal"
     ]
     links, seen = [], set()
 
@@ -243,7 +251,6 @@ def _candidate_shopify_paths(base_url: str):
         "/pages/contact-us",
         "/pages/assistenza",
         "/pages/supporto",
-        "/pages/customer-care",
         "/pages/servizio-clienti",
         "/pages/chi-siamo",
         "/pages/about-us",
@@ -255,15 +262,9 @@ def _candidate_shopify_paths(base_url: str):
     return [urljoin(base_url, p) for p in paths]
 
 def extract_contact_info(url: str, soup: BeautifulSoup, html: str, max_pages: int = 10, sleep_s: float = 0.6):
-    """
-    Strong extraction:
-    - homepage: mailto/tel, text, jsonld, obfuscations
-    - visit contact-ish links + common Shopify paths
-    Returns: (email, phone)
-    """
     emails, phones = set(), set()
 
-    # Home extraction first
+    # homepage
     e1, p1 = _extract_mailto_tel(soup)
     e2, p2 = _extract_from_text(soup)
     e3, p3 = _extract_from_jsonld(soup)
@@ -272,13 +273,10 @@ def extract_contact_info(url: str, soup: BeautifulSoup, html: str, max_pages: in
     emails |= (e1 | e2 | e3 | e4)
     phones |= (p1 | p2 | p3)
 
-    # Build list of pages to visit
-    base_url = url
-    pages = []
-    pages += _discover_contactish_links(soup, base_url, limit=max_pages)
-    pages += _candidate_shopify_paths(base_url)
+    # other pages
+    pages = _discover_contactish_links(soup, url, limit=max_pages) + _candidate_shopify_paths(url)
 
-    # de-dupe + cap
+    # de-dupe
     seen = set()
     unique_pages = []
     for p in pages:
@@ -287,12 +285,12 @@ def extract_contact_info(url: str, soup: BeautifulSoup, html: str, max_pages: in
             unique_pages.append(p)
     unique_pages = unique_pages[:max_pages]
 
-    # crawl extra pages if needed
+    # crawl if still missing
     if (not emails) or (not phones):
         for purl in unique_pages:
             time.sleep(sleep_s)
             r = safe_get(purl, timeout=12)
-            if not r or r.status_code != 200:
+            if not r:
                 continue
 
             csoup = BeautifulSoup(r.text, "html.parser")
@@ -313,105 +311,236 @@ def extract_contact_info(url: str, soup: BeautifulSoup, html: str, max_pages: in
     return email, phone
 
 # ============================================================
-# PLATFORM + SCORE
+# VAT + LEGAL STRUCTURE
 # ============================================================
 
-def get_platform(html: str, url: str) -> str:
-    """Detect platform."""
-    indicators = {
-        "Shopify": ["cdn.shopify.com", "myshopify.com", "shopify.theme", "/cdn/shop/"],
-        "WooCommerce": ["woocommerce", "wp-content/plugins/woocommerce"]
+def extract_vat_numbers(text: str):
+    if not text:
+        return []
+    vats = VAT_RE.findall(text)
+    vats = [v.strip() for v in vats if v and len(v.strip()) == 11]
+    seen = set()
+    out = []
+    for v in vats:
+        if v not in seen:
+            seen.add(v)
+            out.append(v)
+    return out
+
+def legal_structure_detected(text: str) -> str:
+    if not text:
+        return "N"
+    return "Y" if LEGAL_STRUCT_RE.search(text) else "N"
+
+# ============================================================
+# COMPANY SIZE TIER (FATTURATO)
+# ============================================================
+
+def company_size_tier_from_revenue(revenue_eur):
+    if revenue_eur is None:
+        return "UNKNOWN"
+    try:
+        revenue = float(revenue_eur)
+    except (ValueError, TypeError):
+        return "UNKNOWN"
+
+    if revenue < 500_000:
+        return "MICRO"
+    elif revenue < 2_000_000:
+        return "SMALL"
+    elif revenue < 10_000_000:
+        return "MEDIUM"
+    elif revenue < 50_000_000:
+        return "LARGE"
+    else:
+        return "ENTERPRISE"
+
+# ============================================================
+# SERPAPI REVENUE LOOKUP (Google snippets)
+# ============================================================
+
+MONEY_RE = re.compile(
+    r"(?P<cur>€)?\s*(?P<num>\d[\d\.\,]*)\s*"
+    r"(?P<unit>mld|miliard[oi]|bn|billion|mln|milion[ei]|milioni|million|m|k|mila)?",
+    re.IGNORECASE
+)
+KEYWORDS_RE = re.compile(r"\b(fatturato|ricavi|turnover)\b", re.IGNORECASE)
+
+def _parse_eur_amount(text: str):
+    if not text:
+        return None
+
+    m = MONEY_RE.search(text)
+    if not m:
+        return None
+
+    raw_num = (m.group("num") or "").strip()
+    unit = (m.group("unit") or "").lower().strip()
+
+    # normalize IT/EN number formats
+    if "." in raw_num and "," in raw_num:
+        s = raw_num.replace(".", "").replace(",", ".")
+    elif "," in raw_num:
+        if re.match(r"^\d{1,3},\d{1,2}$", raw_num):
+            s = raw_num.replace(",", ".")
+        else:
+            s = raw_num.replace(",", "")
+    else:
+        if re.match(r"^\d{1,3}(\.\d{3})+$", raw_num):
+            s = raw_num.replace(".", "")
+        else:
+            s = raw_num
+
+    try:
+        value = float(s)
+    except:
+        return None
+
+    multiplier = 1
+    if unit in ("k", "mila"):
+        multiplier = 1_000
+    elif unit in ("m", "mln", "milione", "milioni", "million"):
+        multiplier = 1_000_000
+    elif unit in ("mld", "miliardo", "miliardi", "bn", "billion"):
+        multiplier = 1_000_000_000
+
+    return value * multiplier
+
+def get_revenue_from_serpapi(vat_number: str):
+    """
+    Best-effort revenue extraction from Google snippets via SerpApi.
+    Returns: (revenue_eur, revenue_source)
+    """
+    if not SERPAPI_KEY:
+        return None, ""
+
+    vat_digits = "".join(ch for ch in (vat_number or "") if ch.isdigit())
+    if len(vat_digits) != 11:
+        return None, "SerpApi (Google snippets)"
+
+    params = {
+        "engine": "google",
+        "q": f'"{vat_digits}" (fatturato OR ricavi OR turnover)',
+        "location": "Italy",
+        "hl": "it",
+        "gl": "it",
+        "num": 10,
+        "api_key": SERPAPI_KEY
     }
-    html_lower = html.lower()
 
-    for platform, signs in indicators.items():
-        if any(sign in html_lower for sign in signs):
-            return platform
-    # fallback (your request: mostly Shopify)
-    return "Shopify"
+    try:
+        results = GoogleSearch(params).get_dict()
+    except:
+        return None, "SerpApi (Google snippets)"
 
-def calculate_score(visual: str, sku: int, text_search: str, ux: str, sme: str) -> int:
-    """Exact 0-5 scoring."""
+    for result in results.get("organic_results", []):
+        snippet = result.get("snippet", "") or ""
+        if not KEYWORDS_RE.search(snippet.lower()):
+            continue
+
+        revenue = _parse_eur_amount(snippet)
+        if revenue and revenue > 0:
+            return revenue, "SerpApi (Google snippets)"
+
+    return None, "SerpApi (Google snippets)"
+
+# ============================================================
+# SCORE
+# ============================================================
+
+
+def calculate_score(text_search: str, ux: str, legal_struct_y_n: str, revenue_eur):
+    """
+    0-5 score based on:
+      - Text Only Search (Y) -> +1
+      - UX Designed (Y) -> +1
+      - Legal Structure Detected (Y) -> +1
+      - Revenue tier -> up to +2
+    """
     score = 0
-    if visual == "YES": score += 1
-    if sku >= 100: score += 1
-    if text_search == "Y": score += 1
-    if ux == "Y": score += 1
-    if sme == "BIG": score += 1
-    return min(score, 5)
+    if text_search == "Y":
+        score += 1
+    if ux == "Y":
+        score += 1
+    if legal_struct_y_n == "Y":
+        score += 1
 
-def priority_from_score(score: int) -> str:
-    return "LOW" if score <= 3 else "HIGH"
+    tier = company_size_tier_from_revenue(revenue_eur)
+    if tier in ("MEDIUM", "LARGE", "ENTERPRISE"):
+        score += 2
+    elif tier == "SMALL":
+        score += 1
+
+    return min(score, 5)
 
 # ============================================================
 # MAIN EXTRACTION
 # ============================================================
 
 def process_store(url: str, category: str):
-    """Process single store."""
     print(f"🔍 Processing: {url}")
 
     r = safe_get(url, timeout=15)
-    if not r or r.status_code != 200:
+    if not r:
         print(f"❌ Failed: {url}")
         return None
 
     html = r.text
     soup = BeautifulSoup(html, "html.parser")
+    page_text = soup.get_text(" ", strip=True)
 
     brand = extract_brand_from_title(soup, url)
     sku = count_skus(url, soup)
-    visual_search = has_visual_search(soup)
     text_search = has_text_only_search(soup)
     ux = has_refined_ux(soup)
-    sme_scale = estimate_sme_scale(sku)
-    platform = get_platform(html, url)
 
-    # ✅ NEW: stronger email/phone extraction
     email, phone = extract_contact_info(url, soup, html, max_pages=10, sleep_s=0.6)
 
-    score = calculate_score(visual_search, sku, text_search, ux, sme_scale)
-    priority = priority_from_score(score)
+    vats = extract_vat_numbers(page_text)
+    legal_struct = legal_structure_detected(page_text)
+
+    revenue_eur = None
+    if vats:
+        revenue_eur, _ = get_revenue_from_serpapi(vats[0])
+
+    fatturato_tier = company_size_tier_from_revenue(revenue_eur)
+    score = calculate_score(text_search, ux, legal_struct, revenue_eur)
 
     return {
         "Brand": brand,
         "URL": url,
         "Category": category.strip(),
         "SKU": sku,
-        "Visual Search": visual_search,
         "Text Only Search (Y/N)": text_search,
         "UX Designed (Y/N)": ux,
-        "Estimated SME": sme_scale,
+        "Legal Structure Detected? (Y/N)": legal_struct,
+        "Fatturato (Company Size Tier)": fatturato_tier,
         "Score (0-5)": score,
-        "Platform": platform,
         "Email": email,
-        "Phone Number": phone,
-        "PRIORITY": priority
+        "Tel": phone,
     }
 
 # ============================================================
 # BATCH PROCESSOR
 # ============================================================
 
-def run(input_csv: str, output_csv: str = "store_analysis.csv", sleep_s: float = 1.5):
-    """Process input CSV."""
+def run(input_csv: str, output_csv: str = "leads.csv", sleep_s: float = 1.5):
     seen_domains = set()
     results = []
 
-    # detect columns
     with open(input_csv, "r", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         url_col = next((col for col in reader.fieldnames if "url" in col.lower()), None)
         cat_col = next((col for col in reader.fieldnames if "category" in col.lower() or "cat" in col.lower()), None)
 
     if not url_col:
-        raise ValueError("Need 'URL' or 'url' column")
+        raise ValueError("Need a URL column (contains 'url' in header).")
 
     with open(input_csv, "r", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            url = row.get(url_col, "").strip()
-            category = row.get(cat_col, "unknown").strip() if cat_col else "unknown"
+            url = (row.get(url_col) or "").strip()
+            category = (row.get(cat_col) or "unknown").strip() if cat_col else "unknown"
 
             if not url.startswith(("http", "https")):
                 continue
@@ -429,12 +558,27 @@ def run(input_csv: str, output_csv: str = "store_analysis.csv", sleep_s: float =
             time.sleep(sleep_s)
 
     if results:
+        fieldnames = [
+            "Brand",
+            "URL",
+            "Category",
+            "SKU",
+            "Text Only Search (Y/N)",
+            "UX Designed (Y/N)",
+            "Legal Structure Detected? (Y/N)",
+            "Fatturato (Company Size Tier)",
+            "Score (0-5)",
+            "Platform",
+            "Email",
+            "Tel",
+        ]
+
         with open(output_csv, "w", encoding="utf-8", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=list(results[0].keys()))
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(results)
 
-        print(f"\n Saved {len(results)} stores -> {output_csv}")
+        print(f"\n✅ Saved {len(results)} stores -> {output_csv}")
     else:
         print("❌ No results.")
 
