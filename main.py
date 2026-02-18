@@ -33,6 +33,7 @@ PHONE_RE = re.compile(
 
 VAT_RE = re.compile(r"\b(?:IT\s*)?(\d{11})\b", re.IGNORECASE)
 
+# “PMI” in your request = legal structure detected (company-type keywords)
 LEGAL_STRUCT_RE = re.compile(
     r"\b("
     r"s\.?\s*r\.?\s*l\.?|"
@@ -55,7 +56,7 @@ def extract_domain(url: str):
         parsed = urlparse(url.strip())
         domain = (parsed.netloc or "").lower().replace("www.", "")
         return domain or None
-    except:
+    except Exception:
         return None
 
 def safe_get(url: str, timeout=15):
@@ -65,30 +66,89 @@ def safe_get(url: str, timeout=15):
         if r is not None and r.status_code == 200:
             return r
         return None
-    except:
+    except Exception:
         return None
 
-def extract_brand_from_title(soup: BeautifulSoup, url: str) -> str:
-    title = soup.find("title")
-    if title:
-        brand = title.get_text().strip()
-        brand = re.sub(r"\s*[\|\-–]\s*.*$", "", brand)
-        if brand and 3 < len(brand) < 50:
-            return brand[:50]
+# ============================================================
+# BRAND (TITLE TAG ONLY, as requested)
+# ============================================================
+def extract_brand_from_title(soup: BeautifulSoup, url: str = "") -> str:
+    """
+    Extract clean brand name from <title>.
 
-    og_site = soup.find("meta", property="og:site_name")
-    if og_site and og_site.get("content"):
-        return og_site.get("content").strip()[:50]
+    Logic:
+    1. Split title by common separators.
+    2. Prefer the shortest meaningful segment (likely the brand).
+    3. Remove ecommerce junk words.
+    4. Fallback to domain if needed.
+    """
 
-    domain = extract_domain(url)
-    if domain:
-        return domain.split(".")[0].replace("-", " ").title()
+    title_tag = soup.find("title")
+    if not title_tag:
+        return ""
 
-    return "Unknown Brand"
+    raw_title = title_tag.get_text(" ", strip=True)
+    raw_title = re.sub(r"\s+", " ", raw_title).strip()
+
+    # Split by common separators
+    parts = re.split(r"\s*[\|\-–•·:]\s*", raw_title)
+
+    # Words that usually indicate product/category text
+    junk_words = [
+        "shop", "store", "official", "online", "acquista", "buy",
+        "spedizione", "free shipping", "sale", "sconto",
+        "collezione", "collection", "scarpe", "uomo", "donna",
+        "home", "homepage"
+    ]
+
+    candidates = []
+
+    for part in parts:
+        clean = part.strip()
+
+        # Skip very long strings (likely product names)
+        if len(clean) > 60:
+            continue
+
+        # Skip if too short
+        if len(clean) < 2:
+            continue
+
+        lower = clean.lower()
+
+        # Skip segments full of junk words
+        if any(word in lower for word in junk_words):
+            continue
+
+        candidates.append(clean)
+
+    # If we found good candidates → choose the shortest (usually brand)
+    if candidates:
+        brand = min(candidates, key=len)
+        return brand.strip()
+
+    # Fallback: use shortest part overall
+    if parts:
+        fallback = min(parts, key=len).strip()
+        if 2 <= len(fallback) <= 60:
+            return fallback
+
+    # Final fallback: domain
+    if url:
+        domain = urlparse(url).netloc.replace("www.", "")
+        return domain.split(".")[0].title()
+
+    return ""
+
+
+# ============================================================
+# SKU COUNT (best-effort)
+# ============================================================
 
 def count_skus(base_url: str, soup: BeautifulSoup) -> int:
     """
-    Estimate SKU count from /collections/all. If not available, fallback to homepage product links.
+    Estimate SKU count from /collections/all (Shopify-ish).
+    If not available, fallback to homepage product-ish links.
     """
     try:
         collections_url = urljoin(base_url, "/collections/all")
@@ -106,16 +166,18 @@ def count_skus(base_url: str, soup: BeautifulSoup) -> int:
             for selector in product_selectors:
                 max_count = max(max_count, len(coll_soup.select(selector)))
 
-            # crude multiplier for pagination; capped
             if max_count > 0:
+                # crude multiplier for pagination; capped
                 return min(max_count * 3, 1000)
 
         product_links = soup.find_all("a", href=re.compile(r"/products?/"))
         return min(len(product_links), 500)
-    except:
-        return 10
+    except Exception:
+        return 0
 
-    return 10
+# ============================================================
+# TEXT ONLY SEARCH + UX
+# ============================================================
 
 def has_text_only_search(soup: BeautifulSoup) -> str:
     search_inputs = (
@@ -125,15 +187,15 @@ def has_text_only_search(soup: BeautifulSoup) -> str:
         soup.find("input", {"id": re.compile(r"search|query", re.I)})
     )
 
-    all_text = soup.get_text().lower()
-    search_texts = ["search", "cerca", "ricerca", "trova", "query", "q="]
+    all_text = soup.get_text(" ", strip=True).lower()
+    search_texts = ["search", "cerca", "ricerca", "trova"]
 
     ecommerce_indicators = [
-        "/products/", "product-title", "add to cart", "aggiungi al carrello",
+        "/products/", "add to cart", "aggiungi al carrello",
         "price", "prezzo", "buy now", "acquista"
     ]
 
-    has_search = bool(search_inputs) or any(text in all_text for text in search_texts)
+    has_search = bool(search_inputs) or any(t in all_text for t in search_texts)
     has_products = any(ind in all_text for ind in ecommerce_indicators)
 
     return "Y" if has_search and has_products else "N"
@@ -156,7 +218,7 @@ def has_refined_ux(soup: BeautifulSoup) -> str:
 # ============================================================
 
 def _normalize_phone(p: str) -> str:
-    p = re.sub(r"\s+", " ", p).strip()
+    p = re.sub(r"\s+", " ", (p or "")).strip()
     return p.rstrip(".,;:")
 
 def _extract_mailto_tel(soup: BeautifulSoup):
@@ -213,7 +275,7 @@ def _extract_obfuscated_emails(html: str):
             emails.add(f"{m[0]}@{m[1]}.{m[2]}")
     return emails
 
-def _discover_contactish_links(soup: BeautifulSoup, base_url: str, limit=15):
+def _discover_contactish_links(soup: BeautifulSoup, base_url: str, limit=10):
     keywords = [
         "contatti", "contatto", "contact", "assistenza", "supporto",
         "help", "resi", "sped", "shipping",
@@ -234,7 +296,7 @@ def _discover_contactish_links(soup: BeautifulSoup, base_url: str, limit=15):
                     if full not in seen:
                         seen.add(full)
                         links.append(full)
-            except:
+            except Exception:
                 continue
 
         if len(links) >= limit:
@@ -243,6 +305,7 @@ def _discover_contactish_links(soup: BeautifulSoup, base_url: str, limit=15):
     return links
 
 def _candidate_shopify_paths(base_url: str):
+    # Shopify common pages
     paths = [
         "/pages/contatti",
         "/pages/contatto",
@@ -311,7 +374,7 @@ def extract_contact_info(url: str, soup: BeautifulSoup, html: str, max_pages: in
     return email, phone
 
 # ============================================================
-# VAT + LEGAL STRUCTURE
+# VAT + PMI (LEGAL STRUCTURE)
 # ============================================================
 
 def extract_vat_numbers(text: str):
@@ -327,36 +390,14 @@ def extract_vat_numbers(text: str):
             out.append(v)
     return out
 
-def legal_structure_detected(text: str) -> str:
+def pmi_detected(text: str) -> str:
+    """PMI = company/legal structure keywords detected."""
     if not text:
         return "N"
     return "Y" if LEGAL_STRUCT_RE.search(text) else "N"
 
 # ============================================================
-# COMPANY SIZE TIER (FATTURATO)
-# ============================================================
-
-def company_size_tier_from_revenue(revenue_eur):
-    if revenue_eur is None:
-        return "UNKNOWN"
-    try:
-        revenue = float(revenue_eur)
-    except (ValueError, TypeError):
-        return "UNKNOWN"
-
-    if revenue < 500_000:
-        return "MICRO"
-    elif revenue < 2_000_000:
-        return "SMALL"
-    elif revenue < 10_000_000:
-        return "MEDIUM"
-    elif revenue < 50_000_000:
-        return "LARGE"
-    else:
-        return "ENTERPRISE"
-
-# ============================================================
-# SERPAPI REVENUE LOOKUP (Google snippets)
+# FATTURATO (REVENUE VALUE) via SERPAPI
 # ============================================================
 
 MONEY_RE = re.compile(
@@ -393,7 +434,7 @@ def _parse_eur_amount(text: str):
 
     try:
         value = float(s)
-    except:
+    except Exception:
         return None
 
     multiplier = 1
@@ -408,15 +449,14 @@ def _parse_eur_amount(text: str):
 
 def get_revenue_from_serpapi(vat_number: str):
     """
-    Best-effort revenue extraction from Google snippets via SerpApi.
-    Returns: (revenue_eur, revenue_source)
+    Returns revenue_eur (float) or None.
     """
     if not SERPAPI_KEY:
-        return None, ""
+        return None
 
     vat_digits = "".join(ch for ch in (vat_number or "") if ch.isdigit())
     if len(vat_digits) != 11:
-        return None, "SerpApi (Google snippets)"
+        return None
 
     params = {
         "engine": "google",
@@ -424,14 +464,14 @@ def get_revenue_from_serpapi(vat_number: str):
         "location": "Italy",
         "hl": "it",
         "gl": "it",
-        "num": 10,
+        "num": 1,
         "api_key": SERPAPI_KEY
     }
 
     try:
         results = GoogleSearch(params).get_dict()
-    except:
-        return None, "SerpApi (Google snippets)"
+    except Exception:
+        return None
 
     for result in results.get("organic_results", []):
         snippet = result.get("snippet", "") or ""
@@ -440,38 +480,84 @@ def get_revenue_from_serpapi(vat_number: str):
 
         revenue = _parse_eur_amount(snippet)
         if revenue and revenue > 0:
-            return revenue, "SerpApi (Google snippets)"
+            return revenue
 
-    return None, "SerpApi (Google snippets)"
+    return None
 
 # ============================================================
-# SCORE
+# SIZE (FROM FATTURATO VALUE)
 # ============================================================
 
+def size_from_fatturato(revenue_eur):
+    if revenue_eur is None:
+        return "UNKNOWN"
+    try:
+        revenue = float(revenue_eur)
+    except (ValueError, TypeError):
+        return "UNKNOWN"
 
-def calculate_score(text_search: str, ux: str, legal_struct_y_n: str, revenue_eur):
+    if revenue < 500_000:
+        return "MICRO"
+    elif revenue < 2_000_000:
+        return "SMALL"
+    elif revenue < 10_000_000:
+        return "MEDIUM"
+    elif revenue < 50_000_000:
+        return "LARGE"
+    else:
+        return "ENTERPRISE"
+
+# ============================================================
+# SCORE 0-5 (SKU, TEXT SEARCH, UX, PMI, SIZE)
+# ============================================================
+
+def calculate_score(sku: int, text_search: str, ux: str, pmi: str, size: str) -> int:
     """
-    0-5 score based on:
-      - Text Only Search (Y) -> +1
-      - UX Designed (Y) -> +1
-      - Legal Structure Detected (Y) -> +1
-      - Revenue tier -> up to +2
+    Score range: 0 - 5
+
+    +1 if SKU >= 200
+    +1 if Text Only Search == "Y"
+    +1 if UX Designed == "Y"
+    +1 if PMI == "Y"
+    +1 if Size in ("MEDIUM", "LARGE", "ENTERPRISE")
+
+    All conditions are binary.
+    No partial points.
     """
+
     score = 0
+
+    # SKU condition
+    if sku >= 200:
+        score += 1
+
+    # Text search condition
     if text_search == "Y":
         score += 1
+
+    # UX condition
     if ux == "Y":
         score += 1
-    if legal_struct_y_n == "Y":
+
+    # PMI condition
+    if pmi == "Y":
         score += 1
 
-    tier = company_size_tier_from_revenue(revenue_eur)
-    if tier in ("MEDIUM", "LARGE", "ENTERPRISE"):
-        score += 2
-    elif tier == "SMALL":
+    # Size condition
+    if size in ("MEDIUM", "LARGE", "ENTERPRISE"):
         score += 1
 
-    return min(score, 5)
+    return score  # already guaranteed 0–5
+
+
+
+def priority_from_score(score: int) -> str:
+    try:
+        s = int(score)
+    except Exception:
+        return "LOW"
+    return "LOW" if s <= 2 else "HIGH"
+
 
 # ============================================================
 # MAIN EXTRACTION
@@ -489,7 +575,7 @@ def process_store(url: str, category: str):
     soup = BeautifulSoup(html, "html.parser")
     page_text = soup.get_text(" ", strip=True)
 
-    brand = extract_brand_from_title(soup, url)
+    brand = extract_brand_from_title(soup)
     sku = count_skus(url, soup)
     text_search = has_text_only_search(soup)
     ux = has_refined_ux(soup)
@@ -497,27 +583,31 @@ def process_store(url: str, category: str):
     email, phone = extract_contact_info(url, soup, html, max_pages=10, sleep_s=0.6)
 
     vats = extract_vat_numbers(page_text)
-    legal_struct = legal_structure_detected(page_text)
+    pmi = pmi_detected(page_text)
 
     revenue_eur = None
     if vats:
-        revenue_eur, _ = get_revenue_from_serpapi(vats[0])
+        revenue_eur = get_revenue_from_serpapi(vats[0])
 
-    fatturato_tier = company_size_tier_from_revenue(revenue_eur)
-    score = calculate_score(text_search, ux, legal_struct, revenue_eur)
+    size = size_from_fatturato(revenue_eur)
+    score = calculate_score(sku, text_search, ux, pmi, size)
+    priority = priority_from_score(score)
 
     return {
-        "Brand": brand,
-        "URL": url,
-        "Category": category.strip(),
-        "SKU": sku,
-        "Text Only Search (Y/N)": text_search,
-        "UX Designed (Y/N)": ux,
-        "Legal Structure Detected? (Y/N)": legal_struct,
-        "Fatturato (Company Size Tier)": fatturato_tier,
-        "Score (0-5)": score,
+        "brand": brand,
+        "url": url,
+        "category": category.strip(),
+        "sku": sku,
+        "Text Only Search": text_search,
+        "UX Designed": ux,
+        "PMI": pmi,
+        "Fatturato": revenue_eur if revenue_eur is not None else "",
+        "Size": size,
+        "Score 0-5": score,
+        "Platform": "Shopify",  # per your requirement
         "Email": email,
         "Tel": phone,
+        "Priority": priority,  
     }
 
 # ============================================================
@@ -557,22 +647,24 @@ def run(input_csv: str, output_csv: str = "leads.csv", sleep_s: float = 1.5):
 
             time.sleep(sleep_s)
 
-    if results:
-        fieldnames = [
-            "Brand",
-            "URL",
-            "Category",
-            "SKU",
-            "Text Only Search (Y/N)",
-            "UX Designed (Y/N)",
-            "Legal Structure Detected? (Y/N)",
-            "Fatturato (Company Size Tier)",
-            "Score (0-5)",
-            "Platform",
-            "Email",
-            "Tel",
-        ]
+    fieldnames = [
+        "brand",
+        "url",
+        "category",
+        "sku",
+        "Text Only Search",
+        "UX Designed",
+        "PMI",
+        "Fatturato",
+        "Size",
+        "Score 0-5",
+        "Platform",
+        "Email",
+        "Tel",
+        "Priority",
+    ]
 
+    if results:
         with open(output_csv, "w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
@@ -580,7 +672,11 @@ def run(input_csv: str, output_csv: str = "leads.csv", sleep_s: float = 1.5):
 
         print(f"\n✅ Saved {len(results)} stores -> {output_csv}")
     else:
-        print("❌ No results.")
+        # still write headers (useful)
+        with open(output_csv, "w", encoding="utf-8", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+        print("❌ No results (created empty output with headers).")
 
 if __name__ == "__main__":
     run("brands.csv", "leads.csv")
