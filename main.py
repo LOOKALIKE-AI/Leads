@@ -556,7 +556,6 @@ def run(input_csv: str, output_csv: str = "leads.csv", sleep_s: float = 1.5):
 
     fieldnames = [
         "brand",
-        "url",
         "main_domain",
         "category",
         "sku",
@@ -583,4 +582,4 @@ def run(input_csv: str, output_csv: str = "leads.csv", sleep_s: float = 1.5):
         print("❌ No results (created empty output with headers).")
 
 if __name__ == "__main__":
-    run("brands.csv", "leads_1.csv")
+    run("brands.csv", "leads.csv")
