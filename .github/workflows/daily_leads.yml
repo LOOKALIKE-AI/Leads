@@ -1,0 +1,51 @@
+name: Daily Leads Scrape (uv)
+
+on:
+  schedule:
+    # GitHub cron is UTC. 04:00 UTC ≈ 05:00 CEST (during DST).
+    - cron: "0 4 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          # Prefer latest stable unless you are sure about an exact version
+          # version: "0.5.30"
+          cache: true
+
+      - name: Set up Python (via uv)
+        run: |
+          uv python install 3.13
+
+      - name: Sync dependencies (uv)
+        run: |
+          uv sync
+
+      - name: Run script (uv)
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          uv run python main.py
+
+      - name: Commit updated leads.csv (if changed)
+        run: |
+          if git status --porcelain | grep -q "leads.csv"; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add leads.csv
+            git commit -m "Daily update: leads.csv"
+            git push
+          else
+            echo "No changes to leads.csv"
+          fi

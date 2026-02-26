@@ -1,37 +1,34 @@
-brand,url,category,sku,Text Only Search,UX Designed,Legal structure detected,Fatturato,Size,Score 0-5,Platform,Email,Tel,Priority
-Stuff Boutique,https://stuffboutiqueit.myshopify.com/,fashion,504,Y,Y,Y,2775910207.0,ENTERPRISE,5,Shopify,tuff.comunicazioni@gmail.com,+39 392 314 8003,HIGH
-OUTFIT,https://vasofashion.myshopify.com/collections/outfit,fashion,168,Y,Y,N,,UNKNOWN,2,Shopify,info@vasofashion.it,+39 02 23052704,LOW
-92 Negozio di Moda,https://92-fashion-shop-online.myshopify.com/,fashion,270,Y,Y,N,,UNKNOWN,3,Shopify,info@92fashionshop.com,+39 334 123 9417,HIGH
-You and Me Fashion,https://you-and-me-fashion.myshopify.com/,fashion,687,Y,Y,N,749240149.0,ENTERPRISE,4,Shopify,,00749240149,HIGH
-shop multimarca,https://cinema-fashion-store.myshopify.com/,fashion,150,Y,Y,Y,407930.0,MICRO,3,Shopify,arsenicobatik@hotmail.it,0552577717,HIGH
-Boutique di lusso,https://iguanafashionclu.myshopify.com/,fashion,102,Y,Y,N,4400830610.0,ENTERPRISE,3,Shopify,info.iguanafashionclub@gmail.com,+39 081 8920505,HIGH
-Offerte e Sconti,https://fashion-cosmetics-shop.myshopify.com/?srsltid=AfmBOor5DK5CJaHwZa796S5MkC6CDDTiwdZi3r07sU-ObVWOdNuc_46v,fashion,24,Y,Y,N,1302780778.0,ENTERPRISE,3,Shopify,f.cosmetics@hotmail.com,01302780778,HIGH
-ARES FASHION,https://aresfashionitaly.myshopify.com/,fashion,54,Y,Y,N,,UNKNOWN,2,Shopify,info@aresfashion.com,2041926012732941,LOW
-Lagraste,https://lagraste.myshopify.com/blogs/moda-sostenibile/moda-fast-fashion,fashion,444,Y,Y,N,8506180721.0,ENTERPRISE,4,Shopify,lagraste@gmail.com,08506180721,HIGH
-Giò Fashion,https://gio-fashion-bacoli.myshopify.com/,fashion,300,Y,Y,N,,UNKNOWN,3,Shopify,info@giofashion.it,+39 081 804 05 28,HIGH
-Tutti i prodotti,https://luce-beauty.myshopify.com/collections/tutti-i-prodotti,beauty,120,Y,Y,N,,UNKNOWN,2,Shopify,info@lucebeauty.it,+39063236611,LOW
-Yepoda,https://yepoda-it.myshopify.com/,beauty,111,Y,Y,Y,,UNKNOWN,3,Shopify,supporto@yepoda.it,1745847654,HIGH
-ippun Haru,https://persiincorea.myshopify.com/,beauty,768,Y,Y,N,5589950285.0,ENTERPRISE,4,Shopify,age20s-sign@ure-essence-cover-pact-moisture-fon.inta,01/14/2026,HIGH
-Beauty Professional,https://73ff09-2.myshopify.com/,beauty,144,Y,Y,N,3916561214.0,ENTERPRISE,3,Shopify,info@beautyprofessional.it,+ 39 081 879 6143,HIGH
-Bonnie Beauty,https://bonniebeauty-it.myshopify.com/,beauty,54,Y,Y,Y,11623060966.0,ENTERPRISE,4,Shopify,info@bonniebeauty.it,0000000000,HIGH
-INFINITY COSMETICS®,https://infinitycosmetics-it.myshopify.com/,beauty,198,N,Y,Y,2024.0,MICRO,2,Shopify,info@infinitycosmetics.it,14960291004,LOW
-Nudha Beauty,https://nudha-beauty.myshopify.com/,beauty,96,Y,Y,Y,16217651005.0,ENTERPRISE,4,Shopify,il-merc@o-pro.ti,16217651005,HIGH
-Dantina,https://dantina-5339.myshopify.com/products/personalizza-il-tuo-beauty-case-mini,beauty,165,Y,Y,N,2070290479.0,ENTERPRISE,3,Shopify,studio@dantina-tuscany.com,01/21/2026,HIGH
-Cavagna Federica,https://luxury-beautybyfederica-576.myshopify.com/,beauty,93,Y,Y,N,,UNKNOWN,2,Shopify,info@luxuryandbeautybyfederica.com,+ 39 3283512934,LOW
-MIMADE Atelier di design,https://mimade-conceptstore.myshopify.com/?srsltid=AfmBOoobV3oL18cgSsz25qTJ3kgfpvpsCTaL-mp8h97eJk-19vXF-_V9,accessories,72,Y,Y,N,,UNKNOWN,2,Shopify,info@mimade.it,+393248613526,LOW
-Damiano Latini,https://damiano-latini.myshopify.com/pages/complementi-darredo-design,accessories,69,Y,Y,Y,1410060436.0,ENTERPRISE,4,Shopify,info@damianolatini.it,+39.0734.894144,HIGH
-Complementi,https://hirodesign.myshopify.com/collections/accessori,accessories,1000,Y,Y,Y,,UNKNOWN,4,Shopify,shop@hiro.design,04470670235,HIGH
-High,https://abas-fashion-accessories.myshopify.com/,accessories,144,N,Y,Y,1553300128.0,ENTERPRISE,3,Shopify,info2@mmcolombo.it,+39 0332 333801,HIGH
-Lifestyle & Pet,https://3176f1-36.myshopify.com/,accessories,180,Y,Y,Y,,UNKNOWN,3,Shopify,customer@keepupshop.com,+39 0432 1792448,HIGH
-Cloto,https://808324-4.myshopify.com/,accessories,144,Y,Y,Y,,UNKNOWN,3,Shopify,Info@cloto.it,+39 0789 1712305,HIGH
-Accessories,https://danishdesignstore.myshopify.com/collections/accessories,accessories,0,N,Y,N,,UNKNOWN,1,Shopify,,,LOW
-HOME & LIVING,https://danilo-cascella-premium-store.myshopify.com/it/collections/home-living?page=1,home,129,Y,Y,N,2445400902.0,ENTERPRISE,3,Shopify,info@danilocascella.com,+393339276038,HIGH
-Home & Living,https://shop-giardinaggio-san-fruttuoso.myshopify.com/pages/home-living,home,30,N,Y,N,10176300159.0,ENTERPRISE,2,Shopify,posta@giardinaggiosanfruttuoso.it,+39 039 742102,LOW
-Home Lamp,https://homelamp-1.myshopify.com/collections/living,home,102,Y,Y,N,,UNKNOWN,2,Shopify,info@homelamp.it,081 812 4475,LOW
-Premium Furniture for Modern Spaces,https://15u5td-xe.myshopify.com/,home,120,N,Y,N,,UNKNOWN,1,Shopify,sales@homelivingyorkshire.co.uk,01422763465,LOW
-Bindomatic,https://bindomatic-com.myshopify.com/collections/home-living,home,144,Y,Y,N,,UNKNOWN,2,Shopify,contact@bindomatic.com,+%20351300528793,LOW
-Home & Living,https://ta-daan-shop.myshopify.com/collections/home-garden,home,330,Y,Y,N,11093300967.0,ENTERPRISE,4,Shopify,help@ta-daan.com,11093300967,HIGH
-COMMERCE,https://5wjdiy-va.myshopify.com/,home,147,Y,Y,Y,2022236.0,MEDIUM,4,Shopify,r.spampinato@virhome.it,02719550879,HIGH
-noo.ma,https://noo-ma.myshopify.com/,home,1000,Y,Y,N,,UNKNOWN,3,Shopify,support@noo.ma,1665494647,HIGH
-Products,https://2747cf-2.myshopify.com/collections/all?page=1&phcursor=eyJhbGciOiJIUzI1NiJ9.eyJzayI6InByb2R1Y3RfdGl0bGUiLCJzdiI6IkJsdWUgUm95YWxlIFBhc3RhIFBsYXRlIiwiZCI6ImIiLCJ1aWQiOjc3NzUwNzM0MzU3MTgsImwiOjEyLCJvIjowLCJyIjoiQ1AiLCJ2IjoxfQ.MAD4PnLep99TDklDdy4yiKbVTlPlTYR8tOqagWowf8E,home,300,Y,Y,N,,UNKNOWN,3,Shopify,info@palmshomeandliving.com,15000 1500,HIGH
-Mobilgarden,https://mobil-garden.myshopify.com/,home,465,N,Y,Y,2943160214.0,ENTERPRISE,4,Shopify,info@mobilgarden.it,02943160214,HIGH
+brand,url,main_domain,category,sku,Text Only Search,UX Designed,PMI,P.IVA,Score 0-4,Platform,Email,Tel,Priority
+Stuff Boutique,https://stuffboutiqueit.myshopify.com/,https://stuffboutique.it,fashion,510,Y,Y,Y,02775910207,4,Shopify,info@stuffboutique.it,+39 392 314 8003,HIGH
+92 Negozio di Moda,https://92-fashion-shop-online.myshopify.com/,https://92fashionshop.com,fashion,270,Y,Y,N,,3,Shopify,info@92fashionshop.com,+39 334 123 9417,HIGH
+Vaso Fashion,https://vasofashion.myshopify.com/collections/outfit,https://vasofashion.it,fashion,168,Y,Y,N,10567910962,2,Shopify,info@vasofashion.it,+39 0299258718,LOW
+You and Me Fashion,https://you-and-me-fashion.myshopify.com/,https://youandmefashion.it,fashion,735,Y,Y,N,00749240149,3,Shopify,,00749240149,HIGH
+shop multimarca,https://cinema-fashion-store.myshopify.com/,https://www.cinemafashionstore.com,fashion,150,Y,Y,Y,06523120480,3,Shopify,arsenicobatik@hotmail.it,0552577717,HIGH
+Boutique di lusso,https://iguanafashionclu.myshopify.com/,https://www.iguanafashionclub.it,fashion,102,Y,Y,N,04400830610,2,Shopify,info.iguanafashionclub@gmail.com,+39 081 8920505,LOW
+Blackout Fashion Taranto,https://blackout-fashion-taranto.myshopify.com/,https://blackoutfashionstore.com,fashion,216,Y,Y,Y,03141640734,4,Shopify,info@blackoutfashionstore.com,+39 3756589508,HIGH
+ARES FASHION,https://aresfashionitaly.myshopify.com/,https://aresfashion.com,fashion,54,Y,Y,N,,2,Shopify,info@aresfashion.com,2041926012732941,LOW
+Offerte e Sconti,https://fashion-cosmetics-shop.myshopify.com/?srsltid=AfmBOopmJpcU3dY-YQCZ2NZptr3l8LNRx3r2-2D0AXhpuf_fjc4D-_7s,https://fashion-cosmetics-shop.myshopify.com,fashion,24,Y,Y,N,01302780778,2,Shopify,f.cosmetics@hotmail.com,01302780778,LOW
+Adel Fashion Group,https://ebt013-ec.myshopify.com/,https://adelfashiongroup.com,fashion,36,Y,Y,Y,12983970968,3,Shopify,customercare@adelfashiongroup.com,+39 02 70018 120,HIGH
+Cosmetici Biologici e Naturali,https://luce-beauty.myshopify.com/collections/tutti-i-prodotti,https://www.lucebeauty.it,beauty,120,Y,Y,N,,2,Shopify,info@lucebeauty.it,+39063236611,LOW
+Yepoda,https://yepoda-it.myshopify.com/,https://yepoda.it,beauty,111,Y,Y,N,,2,Shopify,supporto@yepoda.it,1745847654,LOW
+Beauty Professional,https://73ff09-2.myshopify.com/,https://beautyprofessional.it,beauty,144,Y,Y,N,03916561214,2,Shopify,info@beautyprofessional.it,+ 39 081 879 6143,LOW
+Bonnie Beauty,https://bonniebeauty-it.myshopify.com/,https://bonniebeauty.it,beauty,54,Y,Y,Y,11623060966,3,Shopify,info@bonniebeauty.it,0000000000,HIGH
+Cavagna Federica,https://luxury-beautybyfederica-576.myshopify.com/,https://luxuryandbeautybyfederica.com,beauty,93,Y,Y,N,03003180308,2,Shopify,info@luxuryandbeautybyfederica.com,+ 39 3283512934,LOW
+"Dantina, beauty",https://dantina-5339.myshopify.com/products/personalizza-il-tuo-beauty-case-mini,https://dantina-tuscany.com,beauty,165,Y,Y,N,02070290479,2,Shopify,studio@dantina-tuscany.com,01/21/2026,LOW
+Brandina the Original,https://brandina-the-original.myshopify.com/collections/beauty,https://www.brandinatheoriginal.it,beauty,1000,Y,Y,Y,04107010409,4,Shopify,info@brandinatheoriginal.it,+39 320 9169000,HIGH
+Damiano Latini,https://damiano-latini.myshopify.com/,https://damiano-latini.myshopify.com,accessories,69,Y,Y,Y,01410060436,3,Shopify,info@damianolatini.it,+39.0734.894144,HIGH
+Damiano Latini,https://damiano-latini.myshopify.com/pages/complementi-darredo-design,https://damianolatini.it,accessories,69,Y,Y,Y,01410060436,3,Shopify,info@damianolatini.it,+39.0734.894144,HIGH
+HiroDesign®,https://hirodesign.myshopify.com/collections/accessori,https://hiro.design,accessories,1000,Y,Y,Y,04470670235,4,Shopify,shop@hiro.design,+393758898207,HIGH
+Cloto,https://808324-4.myshopify.com/,https://shop.cloto.it,accessories,144,Y,Y,Y,01349730901,3,Shopify,Info@cloto.it,+39 0789 1712305,HIGH
+Giovelli Design,https://giovelli-design.myshopify.com/,https://www.giovellidesign.com,accessories,24,Y,Y,N,05807940654,2,Shopify,info@giovellidesign.com,05807940654,LOW
+American Express,https://ikonitaly.myshopify.com/collections/danese-milano,https://www.ikonitaly.com,accessories,144,Y,Y,N,02716690421,2,Shopify,info@ikonitaly.com,+39 392-5784041,LOW
+Danilo Cascella Premium Store,https://danilo-cascella-premium-store.myshopify.com/it/collections/home-living?page=1,https://danilocascella.com,home,129,Y,Y,N,02445400902,2,Shopify,info@danilocascella.com,+393339276038,LOW
+Home Lamp,https://homelamp-1.myshopify.com/collections/living,https://www.homelamp.it,home,102,Y,Y,N,,2,Shopify,info@homelamp.it,081 812 4475,LOW
+Giardinaggio San Fruttuoso,https://shop-giardinaggio-san-fruttuoso.myshopify.com/pages/home-living,https://giardinaggiosanfruttuoso.it,home,30,N,Y,N,10176300159,1,Shopify,posta@giardinaggiosanfruttuoso.it,+39 039 742102,LOW
+Premium Furniture for Modern Spaces,https://15u5td-xe.myshopify.com/,https://homelivingyorkshire.co.uk,home,120,N,Y,N,01422763465,1,Shopify,sales@homelivingyorkshire.co.uk,01422763465,LOW
+Mrunali Gajjar Home & Living,https://prints-by-mrunali-gajjar.myshopify.com/products/maroon-copy?srsltid=AfmBOorhF18mwhduj6w7g5xtqCOq2yF3I61BIrus24IuADMz9cql76wi,https://prints-by-mrunali-gajjar.myshopify.com,home,102,N,Y,N,,1,Shopify,mghomenliving@gmail.com,03/30/2023,LOW
+Bindomatic,https://bindomatic-com.myshopify.com/collections/home-living,https://www.bindomatic.com,home,144,N,Y,N,,1,Shopify,contact@bindomatic.com,+%20351300528793,LOW
+TA,https://ta-daan-shop.myshopify.com/collections/home-garden,https://ta-daan.com,home,330,Y,Y,N,11093300967,3,Shopify,help@ta-daan.com,11093300967,HIGH
+noo.ma,https://noo-ma.myshopify.com/,https://noo.ma,home,1000,Y,Y,N,,3,Shopify,support@noo.ma,1665494647,HIGH
+Decoración,https://hlv2.myshopify.com/a/p,https://homeandliving.es,home,432,N,Y,N,,2,Shopify,,0578/3250/5396,LOW
+Palms Home & Living,https://2747cf-2.myshopify.com/,https://www.palmshomeandliving.com,home,300,Y,Y,N,,3,Shopify,info@palmshomeandliving.com,1754729052,HIGH

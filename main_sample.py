@@ -6,19 +6,20 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
 from dotenv import load_dotenv
+from serpapi import GoogleSearch
 
 # ============================================================
 # ENV + GLOBALS
 # ============================================================
 
 load_dotenv()
+SERPAPI_KEY = os.getenv("SERPAPI_KEY")
 
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    ),
-    "Accept-Language": "it-IT,it;q=0.9,en;q=0.8",
+    )
 }
 
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
@@ -30,7 +31,6 @@ PHONE_RE = re.compile(
     r"(?:[\s./-]?\d{2,4}){1,3}"
 )
 
-# P.IVA (11 digits) with optional IT prefix
 VAT_RE = re.compile(r"\b(?:IT\s*)?(\d{11})\b", re.IGNORECASE)
 
 LEGAL_STRUCT_RE = re.compile(
@@ -47,15 +47,13 @@ LEGAL_STRUCT_RE = re.compile(
 )
 
 # ============================================================
-# BASIC HELPERS (UPDATED: resolve myshopify -> real domain)
+# BASIC HELPERS
 # ============================================================
 
 def extract_domain(url: str):
     try:
-        parsed = urlparse((url or "").strip())
-        domain = (parsed.netloc or "").lower()
-        if domain.startswith("www."):
-            domain = domain[4:]
+        parsed = urlparse(url.strip())
+        domain = (parsed.netloc or "").lower().replace("www.", "")
         return domain or None
     except Exception:
         return None
@@ -64,42 +62,20 @@ def get_base_url(url: str) -> str:
     """
     Converts https://example.com/path -> https://example.com
     """
-    p = urlparse((url or "").strip())
+    p = urlparse(url)
     if not p.scheme or not p.netloc:
-        return (url or "").strip()
+        return url
     return f"{p.scheme}://{p.netloc}"
 
 def safe_get(url: str, timeout=15):
-    """
-    Return (Response, final_url) only if status_code == 200, else (None, final_url_or_original).
-    Follows redirects.
-    """
+    """Return Response only if status_code == 200, else None."""
     try:
         r = requests.get(url, headers=HEADERS, timeout=timeout, allow_redirects=True)
-        final_url = (r.url or url) if r is not None else url
         if r is not None and r.status_code == 200:
-            return r, final_url
-        return None, final_url
+            return r
+        return None
     except Exception:
-        return None, url
-
-def resolve_store_homepage_url(input_url: str, timeout: int = 15) -> str:
-    """
-    Given a URL from CSV (often *.myshopify.com), return the final redirected homepage base URL.
-    Example: https://stuffboutiqueit.myshopify.com/ -> https://stuffboutique.it
-    """
-    u = (input_url or "").strip()
-    if not u:
-        return ""
-
-    if not u.startswith(("http://", "https://")):
-        u = "https://" + u
-
-    r, final_url = safe_get(u, timeout=timeout)
-    if final_url:
-        return get_base_url(final_url)
-
-    return get_base_url(u)
+        return None
 
 # ============================================================
 # BRAND (TITLE TAG ONLY, as requested)
@@ -156,7 +132,7 @@ def count_skus(base_url: str, soup: BeautifulSoup) -> int:
     """
     try:
         collections_url = urljoin(base_url, "/collections/all")
-        r, _ = safe_get(collections_url, timeout=12)
+        r = safe_get(collections_url, timeout=12)
         if r:
             coll_soup = BeautifulSoup(r.text, "html.parser")
             product_selectors = [
@@ -350,7 +326,7 @@ def extract_contact_info(base_url: str, soup: BeautifulSoup, html: str, max_page
     if (not emails) or (not phones):
         for purl in unique_pages:
             time.sleep(sleep_s)
-            r, _ = safe_get(purl, timeout=12)
+            r = safe_get(purl, timeout=12)
             if not r:
                 continue
 
@@ -372,7 +348,7 @@ def extract_contact_info(base_url: str, soup: BeautifulSoup, html: str, max_page
     return email, phone
 
 # ============================================================
-# P.IVA extraction (MAIN DOMAIN scan)
+# VAT + PMI
 # ============================================================
 
 def extract_vat_numbers(text: str):
@@ -388,58 +364,161 @@ def extract_vat_numbers(text: str):
             out.append(v)
     return out
 
-def extract_piva_from_domain(base_url: str, max_pages: int = 8, sleep_s: float = 0.4) -> str:
-    """
-    Scan homepage + a few internal legal/contact pages to find P.IVA.
-    Returns first 11-digit P.IVA found, else "".
-    """
-    r, final_url = safe_get(base_url, timeout=15)
-    if not r:
-        return ""
-
-    soup = BeautifulSoup(r.text, "html.parser")
-    text = soup.get_text(" ", strip=True)
-    vats = extract_vat_numbers(text)
-    if vats:
-        return vats[0]
-
-    pages = _discover_contactish_links(soup, get_base_url(final_url), limit=max_pages) + _candidate_shopify_paths(get_base_url(final_url))
-
-    seen = set()
-    candidates = []
-    for p in pages:
-        try:
-            if urlparse(p).netloc == urlparse(get_base_url(final_url)).netloc and p not in seen:
-                seen.add(p)
-                candidates.append(p)
-        except Exception:
-            continue
-
-    candidates = candidates[:max_pages]
-
-    for purl in candidates:
-        time.sleep(sleep_s)
-        rr, _ = safe_get(purl, timeout=15)
-        if not rr:
-            continue
-        psoup = BeautifulSoup(rr.text, "html.parser")
-        ptext = psoup.get_text(" ", strip=True)
-        vats = extract_vat_numbers(ptext)
-        if vats:
-            return vats[0]
-
-    return ""
-
 def pmi_detected(text: str) -> str:
     if not text:
         return "N"
     return "Y" if LEGAL_STRUCT_RE.search(text) else "N"
 
 # ============================================================
-# SCORE (removed Size dependency)
+# FATTURATO via SERPAPI -> ufficiocamerale page parse
 # ============================================================
 
-def calculate_score(sku: int, text_search: str, ux: str, pmi: str) -> int:
+KEYWORDS_RE = re.compile(r"\b(fatturato|ricavi|turnover)\b", re.IGNORECASE)
+
+MONEY_RE = re.compile(
+    r"(?P<cur>€)?\s*(?P<num>\d[\d\.\,]*)\s*"
+    r"(?P<unit>mld|miliard[oi]|bn|billion|mln|milion[ei]|milioni|million|m|k|mila)?",
+    re.IGNORECASE
+)
+
+def _parse_eur_amount(text: str):
+    if not text:
+        return None
+
+    m = MONEY_RE.search(text)
+    if not m:
+        return None
+
+    raw_num = (m.group("num") or "").strip()
+    unit = (m.group("unit") or "").lower().strip()
+
+    if "." in raw_num and "," in raw_num:
+        s = raw_num.replace(".", "").replace(",", ".")
+    elif "," in raw_num:
+        if re.match(r"^\d{1,3},\d{1,2}$", raw_num):
+            s = raw_num.replace(",", ".")
+        else:
+            s = raw_num.replace(",", "")
+    else:
+        if re.match(r"^\d{1,3}(\.\d{3})+$", raw_num):
+            s = raw_num.replace(".", "")
+        else:
+            s = raw_num
+
+    try:
+        value = float(s)
+    except Exception:
+        return None
+
+    multiplier = 1
+    if unit in ("k", "mila"):
+        multiplier = 1_000
+    elif unit in ("m", "mln", "milione", "milioni", "million"):
+        multiplier = 1_000_000
+    elif unit in ("mld", "miliardo", "miliardi", "bn", "billion"):
+        multiplier = 1_000_000_000
+
+    return value * multiplier
+
+FATTURATO_RE = re.compile(
+    r"Fatturato\s*:\s*€\s*([0-9\.\,]+)\s*(?:\((\d{4})\))?",
+    re.IGNORECASE
+)
+
+def get_revenue_from_serpapi(vat_number: str):
+    if not SERPAPI_KEY:
+        return None
+
+    vat_digits = "".join(ch for ch in (vat_number or "") if ch.isdigit())
+    if len(vat_digits) != 11:
+        return None
+
+    params = {
+        "engine": "google",
+        "q": f'"{vat_digits}" site:ufficiocamerale.it fatturato',
+        "api_key": SERPAPI_KEY
+    }
+
+    try:
+        results = GoogleSearch(params).get_dict()
+    except Exception:
+        return None
+
+    # Choose best ufficiocamerale result
+    best_link = None
+    best_score = -1
+
+    for r in results.get("organic_results", []) or []:
+        link = (r.get("link") or "").strip()
+        if "ufficiocamerale.it" not in link:
+            continue
+
+        title = (r.get("title") or "")
+        snippet = (r.get("snippet") or "")
+
+        # Prefer pages that clearly match this VAT
+        score = 0
+        if vat_digits in title or vat_digits in snippet:
+            score += 3
+        if KEYWORDS_RE.search(title) or KEYWORDS_RE.search(snippet):
+            score += 1
+        if "/lookalike" in link.lower() or "/1116/" in link:
+            score += 1
+
+        if score > best_score:
+            best_score = score
+            best_link = link
+
+    if not best_link:
+        return None
+
+    # Fetch and parse fatturato
+    r = safe_get(best_link, timeout=20)
+    if not r:
+        return None
+
+    soup = BeautifulSoup(r.text, "html.parser")
+    page_text = soup.get_text(" ", strip=True).replace("\xa0", " ")
+
+    m = FATTURATO_RE.search(page_text)
+    if not m:
+        return None
+
+    amount_str = m.group(1)  # e.g. "269.674,00"
+    revenue = _parse_eur_amount(f"€ {amount_str}")
+    if revenue and revenue > 0:
+        return revenue
+
+    return None
+
+# ============================================================
+# SIZE
+# ============================================================
+
+def size_from_fatturato(revenue_eur):
+    if revenue_eur is None:
+        return "UNKNOWN"
+    try:
+        revenue = float(revenue_eur)
+    except (ValueError, TypeError):
+        return "UNKNOWN"
+
+    if revenue < 500_000:
+        return "MICRO"
+    elif revenue < 2_000_000:
+        return "SMALL"
+    elif revenue < 10_000_000:
+        return "MEDIUM"
+    elif revenue < 50_000_000:
+        return "LARGE"
+    else:
+        return "ENTERPRISE"
+
+# ============================================================
+# SCORE
+# ============================================================
+
+def calculate_score(sku: int, text_search: str, ux: str, pmi: str, size: str) -> int:
     score = 0
     if sku >= 200:
         score += 1
@@ -448,6 +527,8 @@ def calculate_score(sku: int, text_search: str, ux: str, pmi: str) -> int:
     if ux == "Y":
         score += 1
     if pmi == "Y":
+        score += 1
+    if size in ("MEDIUM", "LARGE", "ENTERPRISE"):
         score += 1
     return score
 
@@ -465,49 +546,46 @@ def priority_from_score(score: int) -> str:
 def process_store(url: str, category: str):
     print(f"🔍 Processing: {url}")
 
-    # Resolve myshopify -> real domain homepage
-    homepage = resolve_store_homepage_url(url)
-    if not homepage:
-        print(f"❌ Bad URL: {url}")
-        return None
-
-    r, final_url = safe_get(homepage, timeout=15)
+    r = safe_get(url, timeout=15)
     if not r:
-        print(f"❌ Failed: {homepage}")
+        print(f"❌ Failed: {url}")
         return None
 
     html = r.text
     soup = BeautifulSoup(html, "html.parser")
     page_text = soup.get_text(" ", strip=True)
 
-    base_url = get_base_url(final_url)
+    base_url = get_base_url(url)
 
-    brand = extract_brand_from_title(soup, url=base_url)
+    brand = extract_brand_from_title(soup, url=url)
     sku = count_skus(base_url, soup)
     text_search = has_text_only_search(soup)
     ux = has_refined_ux(soup)
 
     email, phone = extract_contact_info(base_url, soup, html, max_pages=10, sleep_s=0.6)
 
-    # NEW: Extract P.IVA from MAIN DOMAIN pages
-    piva = extract_piva_from_domain(base_url, max_pages=8, sleep_s=0.4)
-
-    # PMI detection from homepage text
+    vats = extract_vat_numbers(page_text)
     pmi = pmi_detected(page_text)
 
-    score = calculate_score(sku, text_search, ux, pmi)
+    revenue_eur = None
+    if vats:
+        revenue_eur = get_revenue_from_serpapi(vats[0])
+
+    size = size_from_fatturato(revenue_eur)
+    score = calculate_score(sku, text_search, ux, pmi, size)
     priority = priority_from_score(score)
 
     return {
         "brand": brand,
-        "main_domain": base_url,     # resolved domain
+        "url": url,
         "category": category.strip(),
         "sku": sku,
         "Text Only Search": text_search,
         "UX Designed": ux,
         "PMI": pmi,
-        "P.IVA": piva,
-        "Score 0-4": score,
+        "Fatturato": revenue_eur if revenue_eur is not None else "",
+        "Size": size,
+        "Score 0-5": score,
         "Platform": "Shopify",
         "Email": email,
         "Tel": phone,
@@ -536,13 +614,10 @@ def run(input_csv: str, output_csv: str = "leads.csv", sleep_s: float = 1.5):
             url = (row.get(url_col) or "").strip()
             category = (row.get(cat_col) or "unknown").strip() if cat_col else "unknown"
 
-            if not url:
+            if not url.startswith(("http://", "https://")):
                 continue
 
-            # Resolve early to dedupe by REAL main domain
-            homepage = resolve_store_homepage_url(url)
-            domain = extract_domain(homepage) if homepage else extract_domain(url)
-
+            domain = extract_domain(url)
             if domain and domain in seen_domains:
                 continue
             if domain:
@@ -557,14 +632,14 @@ def run(input_csv: str, output_csv: str = "leads.csv", sleep_s: float = 1.5):
     fieldnames = [
         "brand",
         "url",
-        "main_domain",
         "category",
         "sku",
         "Text Only Search",
         "UX Designed",
         "PMI",
-        "P.IVA",
-        "Score 0-4",
+        "Fatturato",
+        "Size",
+        "Score 0-5",
         "Platform",
         "Email",
         "Tel",
@@ -583,4 +658,4 @@ def run(input_csv: str, output_csv: str = "leads.csv", sleep_s: float = 1.5):
         print("❌ No results (created empty output with headers).")
 
 if __name__ == "__main__":
-    run("brands.csv", "leads_1.csv")
+    run("brands.csv", "leads.csv")
