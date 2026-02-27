@@ -30,13 +30,13 @@ jobs:
 
       - name: Sync dependencies (uv)
         run: |
-          uv sync
+          uv sync --frozen
 
       - name: Run script (uv)
         env:
           PYTHONUNBUFFERED: "1"
         run: |
-          uv run python main.py
+          uv run main.py
 
       - name: Commit updated leads.csv (if changed)
         run: |
