@@ -1,4 +1,4 @@
-from serpapi.google_search import GoogleSearch
+from serpapi import GoogleSearch
 import csv
 import os
 import datetime
