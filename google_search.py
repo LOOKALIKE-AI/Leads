@@ -71,3 +71,8 @@ def generate_brands_csv(output_file: str = "brands.csv"):
         writer.writerows(all_rows)
 
     print(f"✅ Saved {len(all_rows)} total leads to {output_file}")
+
+
+
+if __name__ == "__main__":
+    generate_brands_csv("brands.csv")
