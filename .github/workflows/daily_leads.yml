@@ -3,7 +3,7 @@ name: Daily Leads Scrape (uv)
 on:
   schedule:
     # GitHub cron is UTC. 04:00 UTC ≈ 05:00 CEST (during DST).
-    - cron: "0 4 * * 1-5"
+    - cron: "0 4 * * *"
   workflow_dispatch: {}
 
 permissions:

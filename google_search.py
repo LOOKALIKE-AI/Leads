@@ -60,7 +60,9 @@ def generate_brands_csv(output_file: str = "brands.csv"):
 
     all_rows = []
 
-    start_offset = get_daily_start_offset(total_pages=40)
+    # start_offset = get_daily_start_offset(total_pages=40)
+    start_offset = 10
+
     print(f"🔁 Using SERP page offset: {start_offset}")
 
     for query in QUERIES:
