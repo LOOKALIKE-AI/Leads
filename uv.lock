@@ -92,7 +92,6 @@ dependencies = [
     { name = "google-search-results" },
     { name = "python-dotenv" },
     { name = "requests" },
-    { name = "serpapi" },
 ]
 
 [package.metadata]
@@ -101,7 +100,6 @@ requires-dist = [
     { name = "google-search-results", specifier = ">=2.4.2" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "requests", specifier = ">=2.32.5" },
-    { name = "serpapi", specifier = ">=0.1.5" },
 ]
 
 [[package]]
@@ -126,18 +124,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz", hash = "sha256:dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf", size = 134517, upload-time = "2025-08-18T20:46:02.573Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl", hash = "sha256:2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6", size = 64738, upload-time = "2025-08-18T20:46:00.542Z" },
-]
-
-[[package]]
-name = "serpapi"
-version = "0.1.5"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "requests" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/f0/fa/3fd8809287f3977a3e752bb88610e918d49cb1038b14f4bc51e13e594197/serpapi-0.1.5.tar.gz", hash = "sha256:b9707ed54750fdd2f62dc3a17c6a3fb7fa421dc37902fd65b2263c0ac765a1a5", size = 14191, upload-time = "2023-11-01T14:00:43.602Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/df/6a/21deade04100d64844e494353a5d65e7971fbdfddf78eb1f248423593ad0/serpapi-0.1.5-py2.py3-none-any.whl", hash = "sha256:6467b6adec1231059f754ccaa952b229efeaa8b9cae6e71f879703ec9e5bb3d1", size = 10966, upload-time = "2023-11-01T14:00:38.885Z" },
 ]
 
 [[package]]
