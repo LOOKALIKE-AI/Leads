@@ -1,16 +1,14 @@
 from serpapi import GoogleSearch
 import csv
-from urllib.parse import urlparse
-
 import os
+import datetime
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# 4 predefined queries
 QUERIES = [
     "site:myshopify.com 'fashion'",
-    "site:myshopify.com 'beauty'", 
+    "site:myshopify.com 'beauty'",
     "site:myshopify.com 'Accessories / design'",
     "site:myshopify.com 'Home & Living'"
 ]
@@ -21,53 +19,74 @@ params_base = {
     "google_domain": "google.it",
     "hl": "it",
     "gl": "it",
-    "num": 10,  # Get 10 results per query
+    "num": 10, 
     "api_key": os.getenv("SERPAPI_KEY")
 }
 
+
 def guess_category(query: str) -> str:
-    """Map query directly to category."""
-    if "fashion" in query.lower():
+    q = query.lower()
+    if "fashion" in q:
         return "fashion"
-    elif "beauty" in query.lower():
+    elif "beauty" in q:
         return "beauty"
-    elif "accessories" in query.lower() or "design" in query.lower():
+    elif "accessories" in q or "design" in q:
         return "accessories"
-    elif "home" in query.lower():
+    elif "home" in q:
         return "home"
     return "other"
 
 
-# Collect all leads
-all_rows = []
+def get_daily_start_offset(total_pages: int = 40) -> int:
+    """
+    Rotates through 40 SERP pages.
+    
+    Day 1 -> page 0 (start=0)
+    Day 2 -> page 1 (start=10)
+    ...
+    Day 40 -> page 39 (start=390)
+    Day 41 -> page 0 again
+    """
+    today = datetime.date.today()
+    page_number = today.toordinal() % total_pages
+    return page_number * 10
 
-for query in QUERIES:
-    # print(f"Searching: {query}")
-    
-    params = params_base.copy()
-    params["q"] = query
-    
-    search = GoogleSearch(params)
-    results = search.get_dict()
-    
-    organic = results.get("organic_results", [])
-    
-    for r in organic[:10]:  # Take max 10 per query
-        link = r.get("link", "")
-        category = guess_category(query)
-        
-        all_rows.append({
-            "URL": link,
-            "Category": category
-        })
-    
-    # print(f"Found {len(organic)} results for {query}")
 
-# Save to CSV
-with open("brands.csv", "w", newline="", encoding="utf-8") as f:
-    writer = csv.DictWriter(f, fieldnames=[ "URL", "Category"])
-    writer.writeheader()
-    writer.writerows(all_rows)
+def generate_brands_csv(output_file: str = "brands.csv"):
+    """
+    Generates brands.csv using rotating SERP pagination.
+    Each day pulls the next page of Google results.
+    """
 
-print(f"\n Saved {len(all_rows)} total leads to brands.csv")
-# print(f"Breakdown: {len([r for r in all_rows if r['Category']=='fashion'])} fashion, {len([r for r in all_rows if r['Category']=='beauty'])} beauty, etc.")
+    all_rows = []
+
+    start_offset = get_daily_start_offset(total_pages=40)
+    print(f"🔁 Using SERP page offset: {start_offset}")
+
+    for query in QUERIES:
+        params = params_base.copy()
+        params["q"] = query
+        params["start"] = start_offset  # ✅ Rotating page
+
+        search = GoogleSearch(params)
+        results = search.get_dict()
+
+        organic = results.get("organic_results", []) or []
+
+        for r in organic:
+            link = (r.get("link") or "").strip()
+            if not link:
+                continue
+
+            all_rows.append({
+                "URL": link,
+                "Category": guess_category(query)
+            })
+
+    # Save CSV
+    with open(output_file, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["URL", "Category"])
+        writer.writeheader()
+        writer.writerows(all_rows)
+
+    print(f"✅ Saved {len(all_rows)} total leads to {output_file}")

@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
 from dotenv import load_dotenv
 
+from google_search import generate_brands_csv
 # ============================================================
 # ENV + GLOBALS
 # ============================================================
@@ -582,4 +583,8 @@ def run(input_csv: str, output_csv: str = "leads.csv", sleep_s: float = 1.5):
         print("❌ No results (created empty output with headers).")
 
 if __name__ == "__main__":
+    # Step 1: Generate fresh brands.csv from SERP
+    generate_brands_csv("brands.csv")
+
+    # Step 2: Process those brands into leads.csv
     run("brands.csv", "leads.csv")
