@@ -1,0 +1,1 @@
+{"fashion": 10, "beauty": 10, "accessories": 10, "home": 10}
