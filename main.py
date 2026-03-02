@@ -7,12 +7,14 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
 from dotenv import load_dotenv
 
-from google_search import generate_brands_csv
 # ============================================================
 # ENV + GLOBALS
 # ============================================================
 
-load_dotenv()
+load_dotenv(override=True)
+
+from google_search import generate_brands_csv
+
 
 HEADERS = {
     "User-Agent": (
