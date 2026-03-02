@@ -1,34 +1,33 @@
 brand,main_domain,category,sku,Text Only Search,UX Designed,PMI,P.IVA,Score 0-4,Platform,Email,Tel,Priority
-Stuff Boutique,https://stuffboutique.it,fashion,510,Y,Y,Y,02775910207,4,Shopify,info@stuffboutique.it,+39 392 314 8003,HIGH
-92 Negozio di Moda,https://92fashionshop.com,fashion,270,Y,Y,N,,3,Shopify,info@92fashionshop.com,+39 334 123 9417,HIGH
-You and Me Fashion,https://youandmefashion.it,fashion,735,Y,Y,N,00749240149,3,Shopify,,00749240149,HIGH
-shop multimarca,https://www.cinemafashionstore.com,fashion,150,Y,Y,Y,06523120480,3,Shopify,arsenicobatik@hotmail.it,0552577717,HIGH
-Boutique di lusso,https://www.iguanafashionclub.it,fashion,102,Y,Y,N,04400830610,2,Shopify,info.iguanafashionclub@gmail.com,+39 081 8920505,LOW
-ARES FASHION,https://aresfashion.com,fashion,54,Y,Y,N,,2,Shopify,info@aresfashion.com,2041926012732941,LOW
-Offerte e Sconti,https://fashion-cosmetics-shop.myshopify.com,fashion,24,Y,Y,N,01302780778,2,Shopify,f.cosmetics@hotmail.com,01302780778,LOW
-Vaso Fashion,https://vasofashion.it,fashion,168,Y,Y,N,10567910962,2,Shopify,info@vasofashion.it,+39 0299258718,LOW
-Palma Fashion Boutique,https://www.palmafashionshop.com,fashion,84,Y,Y,N,05848441217,2,Shopify,palma.fashion@gmail.com,05848441217,LOW
-Gipsy Fashion Wear,https://gipsyfashionwear.com,fashion,144,Y,Y,N,06733861212,2,Shopify,saragipsy.sonica@gmail.com,+39 3486823005,LOW
+Still Clothing — La moda che viaggia con te,https://stillclothing.it,fashion,288,Y,Y,N,02992471207,3,Shopify,privacy@stillclothing.it,02/07/2026,HIGH
+RUPE,https://rupeclothing.com,fashion,213,Y,Y,N,,3,Shopify,mattia@rupeclothing.it,1762196777,HIGH
+Comme Toi,https://www.commetoi.it,fashion,294,N,Y,Y,06662470019,3,Shopify,customercare@commetoi.it,+39 011532075,HIGH
+Est clothing World,https://www.estclothing.eu,fashion,108,N,N,N,,0,Shopify,,,LOW
+Flanella Italia,https://www.flanella.com,fashion,162,N,Y,Y,02471411203,2,Shopify,online@flanella.com,+39 051 2961397,LOW
+Muc,https://muc-off-eu.myshopify.com,fashion,129,Y,Y,N,,2,Shopify,customerservice@muc-off.com,1202 307791,LOW
+Communityclothing,https://communityclothing.co.uk,fashion,6,Y,Y,N,,2,Shopify,customerservice@communityclothing.co.uk,2025 2025,LOW
+Lardini,https://www.lardini.com,fashion,288,Y,Y,Y,00517670428,4,Shopify,,+39 02 3790 1122,HIGH
+YOUKNOW. Clothing,https://youknowclothing.com,fashion,300,N,Y,N,,2,Shopify,support@youknow.co.nz,1758077070,LOW
+Maccheroni clothing,https://maccheroniclothing.it,fashion,48,Y,Y,N,04841130232,2,Shopify,info@maccheroniclothing.it,+39 3471048424,LOW
 Cosmetici Biologici e Naturali,https://www.lucebeauty.it,beauty,120,Y,Y,N,,2,Shopify,info@lucebeauty.it,+39063236611,LOW
 Yepoda,https://yepoda.it,beauty,111,Y,Y,N,,2,Shopify,supporto@yepoda.it,1745847654,LOW
-Biothaleae,https://biothaleae.it,beauty,204,Y,Y,Y,,4,Shopify,m.federici@thalaee.com,1741253908,HIGH
-Brandina the Original,https://www.brandinatheoriginal.it,beauty,1000,Y,Y,Y,04107010409,4,Shopify,info@brandinatheoriginal.it,+39 320 9169000,HIGH
 Vittoria Profumi,https://vittoriaprofumi.com,beauty,96,Y,Y,N,01880180433,2,Shopify,info@vittoriaprofumi.com,01880180433,LOW
-Bonnie Beauty,https://bonniebeauty.it,beauty,54,Y,Y,Y,11623060966,3,Shopify,info@bonniebeauty.it,0000000000,HIGH
-HiroDesign®,https://hiro.design,accessories,1000,Y,Y,Y,04470670235,4,Shopify,shop@hiro.design,+393758898207,HIGH
-Damiano Latini,https://damianolatini.it,accessories,69,Y,Y,Y,01410060436,3,Shopify,info@damianolatini.it,+39.0734.894144,HIGH
-Cloto,https://shop.cloto.it,accessories,144,Y,Y,Y,01349730901,3,Shopify,Info@cloto.it,+39 0789 1712305,HIGH
-"Design, Lifestyle & Pet",https://www.keepupshop.com,accessories,180,Y,Y,Y,02972550301,3,Shopify,customer@keepupshop.com,+39 0432 1792448,HIGH
-Damiano Latini,https://damiano-latini.myshopify.com,accessories,69,Y,Y,Y,01410060436,3,Shopify,info@damianolatini.it,+39.0734.894144,HIGH
-American Express,https://www.ikonitaly.com,accessories,144,Y,Y,N,02716690421,2,Shopify,info@ikonitaly.com,+39 392-5784041,LOW
-Giovelli Design,https://www.giovellidesign.com,accessories,24,Y,Y,N,05807940654,2,Shopify,info@giovellidesign.com,05807940654,LOW
-Home Lamp,https://www.homelamp.it,home,102,Y,Y,N,,2,Shopify,info@homelamp.it,081 812 4475,LOW
-Giardinaggio San Fruttuoso,https://giardinaggiosanfruttuoso.it,home,30,N,Y,N,10176300159,1,Shopify,posta@giardinaggiosanfruttuoso.it,+39 039 742102,LOW
-Premium Furniture for Modern Spaces,https://homelivingyorkshire.co.uk,home,120,N,Y,N,01422763465,1,Shopify,sales@homelivingyorkshire.co.uk,01422763465,LOW
-Danilo Cascella Premium Store,https://danilocascella.com,home,129,Y,Y,N,02445400902,2,Shopify,info@danilocascella.com,+393339276038,LOW
-TA,https://ta-daan.com,home,333,Y,Y,N,11093300967,3,Shopify,help@ta-daan.com,11093300967,HIGH
-Bindomatic,https://www.bindomatic.com,home,144,N,Y,N,,1,Shopify,contact@bindomatic.com,+%20351300528793,LOW
-Mrunali Gajjar Home & Living,https://prints-by-mrunali-gajjar.myshopify.com,home,102,N,Y,N,,1,Shopify,mghomenliving@gmail.com,03/30/2023,LOW
-Genius Lounge Inc.,https://genius-lounge-inc.myshopify.com,home,24,Y,Y,Y,,3,Shopify,geniusloungewaikiki@gmail.com,1614307709,HIGH
-Palms Home & Living,https://www.palmshomeandliving.com,home,300,Y,Y,N,,3,Shopify,info@palmshomeandliving.com,1754729052,HIGH
-COMMERCE,https://www.virhome.com,home,147,Y,Y,Y,02719550879,3,Shopify,r.spampinato@virhome.it,02719550879,HIGH
+Brandina the Original,https://www.brandinatheoriginal.it,beauty,1000,Y,Y,Y,04107010409,4,Shopify,info@brandinatheoriginal.it,+39 320 9169000,HIGH
+Paola Parrinello Jewelry,https://paolaparrinellojewellery.com,accessories,81,Y,Y,N,05196760820,2,Shopify,paola.parrinello@archiworldpec.it,+39 3317726854,LOW
+MyOh Jewelry,https://myohjewelry.com,accessories,390,Y,Y,N,04484500162,3,Shopify,hello@myohjewelry.com,01/05/2026,HIGH
+12pm,https://12pm.it,accessories,123,Y,Y,Y,,3,Shopify,info@12pm.it,1681477323,HIGH
+10corsocomo,https://10corsocomo.com,accessories,144,N,Y,Y,09579180150,2,Shopify,3rooms@10corsocomo.com,%20+390229002674,LOW
+Silver Jewelry Online Store,https://manuelbozzi.myshopify.com,accessories,294,Y,Y,Y,,4,Shopify,shop@manuelbozzi.it,+39 351 5711012,HIGH
+Gioielleria Pennisi Milano,https://www.gioielleriapennisi.com,accessories,180,Y,Y,N,01143570156,2,Shopify,eshop@gioielleriapennisi.it,1606557455,LOW
+Princess Jewelry,https://princessjewelry.it,accessories,96,Y,Y,N,08632030725,2,Shopify,info@princessjewelry.it,08632030725,LOW
+Milano,https://www.spallanzanijewels.com,accessories,294,Y,Y,N,,3,Shopify,info@spallanzanijewels.com,+39 02.92863746,HIGH
+ALIITA,https://aliita.com,accessories,144,N,Y,N,09094780963,1,Shopify,a.tabache@svr-pr.de,09094780963,LOW
+NOI GIOIELLI FIRENZE,https://www.noigioielli.com,accessories,162,N,Y,N,,1,Shopify,boutique@noigioielli.com,+39 3713735961,LOW
+"Mobili ed accessori per la casa, ufficio, giardino",https://novitahome.com,home,450,N,Y,N,01652060979,2,Shopify,shop@novitahome.it,09/15/2023,LOW
+Prestige Home,https://www.prestigehomeshop.com,home,198,Y,Y,N,02547250759,2,Shopify,info@prestigehomeshop.com,+39 388 88 90 707,LOW
+LLG,https://luxurylivinggroup.com,home,96,N,Y,Y,06271501006,2,Shopify,info@luxurylivinggroup.com,+39 0543 725244,LOW
+Arredamenti di design made in Italy,https://www.arhome.it,home,1000,Y,Y,N,01029270939,3,Shopify,info@arhome.it,+39 340 7761508,HIGH
+Sito ufficiale di Rains®,https://www.it.rains.com,home,594,Y,Y,N,,3,Shopify,mail@rains.com,+4571992516,HIGH
+TechSoundSystem.com,https://www.techsoundsystem.com,home,354,Y,Y,Y,03548570542,4,Shopify,audiovideostore@pec.it,03548570542,HIGH
+Survival,https://catalogo.survival.it,home,99,N,Y,N,,1,Shopify,info@survival.it,02 8900671,LOW
+Eterea Cosmesi,https://etereacosmesi.it,home,72,Y,Y,N,04489780611,2,Shopify,customer@etereacosmesi.it,04489780611,LOW
