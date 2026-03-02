@@ -8,7 +8,7 @@ load_dotenv()
 
 # Keywords rotate 1 per category daily
 KEYWORDS = {
-    "fashion": ["moda", "abbigliamento", "vestiti", "scarpe", "borse", "outfit", "tendenze", "elegante", "luxury", "designer"],
+    "fashion": ["abbigliamento", "vestiti", "scarpe", "borse", "outfit", "tendenze", "elegante", "luxury", "designer"],
     "beauty": ["bellezza", "makeup", "trucco", "crema", "profumo", "skincare", "viso", "labbra", "occhi", "bio"],
     "accessories": ["gioielli", "occhiali", "borsa", "cintura", "orologio", "sciarpa", "portafoglio", "bracciale", "anello", "vintage"],
     "home": ["casa", "arredamento", "mobili", "lampada", "tappeto", "cuscino", "quadro", "vaso", "divano", "cucina"]
