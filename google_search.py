@@ -1,5 +1,6 @@
 import csv
 import os
+import time
 from dotenv import load_dotenv
 from serpapi import GoogleSearch
 from datetime import datetime
@@ -12,16 +13,6 @@ KEYWORDS = {
     "beauty": ["beauty", "makeup", "cosmetics", "skincare", "perfume", "cream", "face", "lips", "eyes", "organic"],
     "accessories": ["jewelry", "sunglasses", "handbags", "belts", "watches", "scarves", "wallets", "bracelets", "rings", "vintage"],
     "home": ["home", "furniture", "decor", "lamps", "rugs", "pillows", "art", "vases", "sofas", "kitchen"]
-}
-
-params_base = {
-    "engine": "google",
-    "location": "Italy",
-    "google_domain": "google.it",
-    "hl": "it",
-    "gl": "it",
-    "num": 10,
-    "api_key": os.getenv("SERPAPI_KEY")
 }
 
 def get_daily_keyword(category: str) -> str:
@@ -37,12 +28,26 @@ def write_fresh_csv(rows, filename="brands.csv"):
         writer.writerows(rows)
 
 def generate_brands_csv(output_file: str = "brands.csv"):
+    # CREATE FRESH params here - fixes GitHub Actions!
+    params_base = {
+        "engine": "google",
+        "location": "Italy",
+        "google_domain": "google.it",
+        "hl": "it",
+        "gl": "it",
+        "num": 10,
+        "api_key": os.getenv("SERPAPI_KEY")
+    }
+    
+    # Debug: Print API key status (remove after testing)
+    print(f"🔑 API Key loaded: {'✅ YES' if params_base['api_key'] else '❌ NO'}")
+    
     today_keywords = []
     
     # Get 1 keyword per category
     for category in KEYWORDS.keys():
         keyword = get_daily_keyword(category)
-        today_keywords.append((f"site:myshopify.com \"{keyword}\"", category))
+        today_keywords.append((f'site:myshopify.com "{keyword}"', category))
     
     print(f"📅 Today ({datetime.now().strftime('%A')}): 1 keyword/category")
     for query, cat in today_keywords:
@@ -56,21 +61,24 @@ def generate_brands_csv(output_file: str = "brands.csv"):
         
         print(f"\nSearching {category}: {query}")
         
-        search = GoogleSearch(params)
-        results = search.get_dict()
-        organic = results.get("organic_results", [])
+        try:
+            search = GoogleSearch(params)
+            results = search.get_dict()
+            print(f"Debug results keys: {list(results.keys())}")  # Debug
+            organic = results.get("organic_results", [])
+            
+            category_rows = []
+            for r in organic[:10]:
+                link = (r.get("link") or "").strip()
+                if link and "myshopify.com" in link:
+                    category_rows.append({"URL": link, "Category": category})
+            
+            all_rows.extend(category_rows)
+            print(f"   ✅ {len(category_rows)} {category} stores (total organic: {len(organic)})")
+        except Exception as e:
+            print(f"❌ Error for {category}: {e}")
         
-        category_rows = []
-        for r in organic[:10]:
-            link = (r.get("link") or "").strip()
-            if link and "myshopify.com" in link:
-                category_rows.append({"URL": link, "Category": category})
-        
-        all_rows.extend(category_rows)
-        print(f"   ✅ {len(category_rows)} {category} stores")
-        
-        import time
-        time.sleep(0.3)  # Rate limit
+        time.sleep(1)  # Safer rate limit
     
     if all_rows:
         write_fresh_csv(all_rows, output_file)
