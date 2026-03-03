@@ -36,6 +36,7 @@ jobs:
         env:
           PYTHONUNBUFFERED: "1"
         run: |
+          uv run google_search.py
           uv run main.py
 
       - name: Commit updated leads.csv (if changed)
