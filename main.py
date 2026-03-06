@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 # ENV + GLOBALS
 # ============================================================
 
-load_dotenv(override=True)
+load_dotenv()
 
 from google_search import generate_brands_csv
 
