@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from serpapi import GoogleSearch
 from datetime import datetime
 
-load_dotenv(override=True)
+load_dotenv()
 
 # Keywords rotate 1 per category daily
 KEYWORDS = {
