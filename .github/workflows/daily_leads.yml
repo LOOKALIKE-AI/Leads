@@ -33,7 +33,6 @@ jobs:
 
       - name: Run google search and lead processing
         env:
-          PYTHONUNBUFFERED: "1"
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
         run: |
           uv run google_search.py
