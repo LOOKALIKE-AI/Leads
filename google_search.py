@@ -1,25 +1,45 @@
 import csv
 import os
 import time
+from datetime import datetime
+
 from dotenv import load_dotenv
 from serpapi import GoogleSearch
-from datetime import datetime
 
 load_dotenv()
 
-# Keywords rotate 1 per category daily
 KEYWORDS = {
-    "fashion": ["clothing", "apparel", "dresses", "shoes", "bags", "outfits", "trendy", "style", "luxury", "designer"],
-    "beauty": ["beauty", "makeup", "cosmetics", "skincare", "perfume", "cream", "face", "lips", "eyes", "organic"],
-    "accessories": ["jewelry", "sunglasses", "handbags", "belts", "watches", "scarves", "wallets", "bracelets", "rings", "vintage"],
-    "home": ["home", "furniture", "decor", "lamps", "rugs", "pillows", "art", "vases", "sofas", "kitchen"]
+    "fashion": [
+        "clothing", "apparel", "dresses", "shoes", "bags",
+        "outfits", "trendy", "style", "luxury", "designer"
+    ],
+    "beauty": [
+        "beauty", "makeup", "cosmetics", "skincare", "perfume",
+        "cream", "face", "lips", "eyes", "organic"
+    ],
+    "accessories": [
+        "jewelry", "sunglasses", "handbags", "belts", "watches",
+        "scarves", "wallets", "bracelets", "rings", "vintage"
+    ],
+    "home": [
+        "home", "furniture", "decor", "lamps", "rugs",
+        "pillows", "art", "vases", "sofas", "kitchen"
+    ],
 }
 
+
+def get_api_key() -> str:
+    api_key = os.getenv("SERPAPI_KEY", "").strip()
+    if not api_key:
+        raise ValueError("SERPAPI_KEY is missing. Add it in GitHub Secrets.")
+    return api_key
+
+
 def get_daily_keyword(category: str) -> str:
-    """Get today's keyword for this category."""
-    today = datetime.now().weekday()  # 0=Monday...6=Sunday
+    today_index = datetime.now().weekday()  # 0 = Monday, 6 = Sunday
     words = KEYWORDS[category]
-    return words[today % len(words)]  # Rotate daily
+    return words[today_index % len(words)]
+
 
 def write_fresh_csv(rows, filename="brands.csv"):
     with open(filename, "w", newline="", encoding="utf-8") as f:
@@ -27,64 +47,90 @@ def write_fresh_csv(rows, filename="brands.csv"):
         writer.writeheader()
         writer.writerows(rows)
 
-def generate_brands_csv(output_file: str = "brands.csv"):
-    # CREATE FRESH params here - fixes GitHub Actions!
-    params_base = {
+
+def search_myshopify_stores(query: str, category: str, api_key: str):
+    params = {
         "engine": "google",
+        "q": query,
         "location": "Italy",
         "google_domain": "google.it",
         "hl": "it",
         "gl": "it",
         "num": 10,
-        "api_key": os.getenv("SERPAPI_KEY")
+        "api_key": api_key,
     }
-    
-    # Debug: Print API key status (remove after testing)
-    print(f"🔑 API Key loaded: {'✅ YES' if params_base['api_key'] else '❌ NO'}")
-    
-    today_keywords = []
-    
-    # Get 1 keyword per category
-    for category in KEYWORDS.keys():
+
+    print(f"\nSearching {category}: {query}")
+
+    search = GoogleSearch(params)
+    results = search.get_dict()
+
+    if "error" in results:
+        raise RuntimeError(f"SerpAPI error: {results['error']}")
+
+    organic = results.get("organic_results", [])
+    rows = []
+
+    for result in organic:
+        link = (result.get("link") or "").strip()
+        if "myshopify.com" in link:
+            rows.append({
+                "URL": link,
+                "Category": category,
+            })
+
+    print(f"   ✅ {len(rows)} {category} stores found (organic results: {len(organic)})")
+    return rows
+
+
+def deduplicate_rows(rows):
+    seen = set()
+    unique_rows = []
+
+    for row in rows:
+        key = (row["URL"], row["Category"])
+        if key not in seen:
+            seen.add(key)
+            unique_rows.append(row)
+
+    return unique_rows
+
+
+def generate_brands_csv(output_file="brands.csv"):
+    api_key = get_api_key()
+    print("🔑 API Key loaded: ✅ YES")
+
+    today_queries = []
+    for category in KEYWORDS:
         keyword = get_daily_keyword(category)
-        today_keywords.append((f'site:myshopify.com "{keyword}"', category))
-    
-    print(f"📅 Today ({datetime.now().strftime('%A')}): 1 keyword/category")
-    for query, cat in today_keywords:
-        print(f"   🔍 {query} → {cat}")
-    
+        query = f'site:myshopify.com "{keyword}"'
+        today_queries.append((query, category))
+
+    print(f"📅 Today ({datetime.now().strftime('%A')}): 1 keyword per category")
+    for query, category in today_queries:
+        print(f"   🔍 {query} → {category}")
+
     all_rows = []
-    
-    for query, category in today_keywords:
-        params = params_base.copy()
-        params["q"] = query
-        
-        print(f"\nSearching {category}: {query}")
-        
+
+    for query, category in today_queries:
         try:
-            search = GoogleSearch(params)
-            results = search.get_dict()
-            print(f"Debug results keys: {list(results.keys())}")  # Debug
-            organic = results.get("organic_results", [])
-            
-            category_rows = []
-            for r in organic[:10]:
-                link = (r.get("link") or "").strip()
-                if link and "myshopify.com" in link:
-                    category_rows.append({"URL": link, "Category": category})
-            
+            category_rows = search_myshopify_stores(query, category, api_key)
             all_rows.extend(category_rows)
-            print(f"   ✅ {len(category_rows)} {category} stores (total organic: {len(organic)})")
         except Exception as e:
             print(f"❌ Error for {category}: {e}")
-        
-        time.sleep(1)  # Safer rate limit
-    
+
+        time.sleep(1)
+
+    all_rows = deduplicate_rows(all_rows)
+
     if all_rows:
         write_fresh_csv(all_rows, output_file)
-        print(f"\n✅ Fresh CSV: {len(all_rows)} leads from today's 4 keywords!")
+        print(f"\n✅ Fresh CSV written: {len(all_rows)} unique leads saved to {output_file}")
     else:
-        print("\n⚠️ No results today")
+        print("\n⚠️ No results found today")
+        write_fresh_csv([], output_file)
+        print(f"📝 Empty CSV created: {output_file}")
+
 
 if __name__ == "__main__":
     generate_brands_csv("brands.csv")
