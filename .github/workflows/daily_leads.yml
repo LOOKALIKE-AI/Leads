@@ -2,7 +2,7 @@ name: Daily Leads Scrape
 
 on:
   schedule:
-    - cron: "17 4 * * *"   # avoid top of hour
+    - cron: '17 4 * * *' # runs everyday at 17 past 4 A:M UTC
   workflow_dispatch:
 
 permissions:
@@ -11,38 +11,38 @@ permissions:
 jobs:
   run-script:
     runs-on: ubuntu-latest
-    env:
-      PYTHONUNBUFFERED: "1"
-      SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
 
     steps:
-      - name: Checkout repo
+      - name: check out repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v6
         with:
-          enable-cache: true
+          version: "0.7.21"
 
       - name: Set up Python
-        run: uv python install 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: ".python-version"
 
-      - name: Sync dependencies
-        run: uv sync --frozen
+      - name: Install the project
+        run: uv sync --locked --all-extras --dev
 
-      - name: Run scripts
+      - name: Run google search and lead processing
+        env:
+          PYTHONUNBUFFERED: "1"
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
         run: |
           uv run google_search.py
           uv run main.py
 
-      - name: Commit updated CSV files
+      - name: Commit and push changes
         run: |
-          if git status --porcelain | grep -E "brands.csv|leads.csv"; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add brands.csv leads.csv
-            git commit -m "Daily update: brands and leads"
-            git push
-          else
-            echo "No changes to CSV files"
-          fi
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add -A
+          git commit -m "chore(data): refresh brands and leads using GitHub Actions" || echo "No changes to commit"
+          git push
