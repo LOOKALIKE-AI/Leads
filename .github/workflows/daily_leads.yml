@@ -2,7 +2,7 @@ name: Daily Leads Scrape
 
 on:
   schedule:
-    - cron: '17 4 * * *' # runs everyday at 17 past 4 A:M UTC
+    - cron: '17 4 * * *'
   workflow_dispatch:
 
 permissions:
@@ -26,13 +26,25 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version-file: ".python-version"
+          python-version: "3.13"
 
       - name: Install the project
         run: uv sync --locked --all-extras --dev
 
+      - name: Debug secret presence
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: |
+          if [ -z "$SERPAPI_KEY" ]; then
+            echo "SERPAPI_KEY is EMPTY"
+            exit 1
+          else
+            echo "SERPAPI_KEY is present"
+          fi
+
       - name: Run google search and lead processing
         env:
+          PYTHONUNBUFFERED: "1"
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
         run: |
           uv run google_search.py
