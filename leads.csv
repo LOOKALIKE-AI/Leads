@@ -1,34 +1,25 @@
 brand,main_domain,category,sku,Text Only Search,UX Designed,PMI,P.IVA,Score 0-4,Platform,Email,Tel,Priority
-Velasca,https://www.velasca.com,fashion,0,N,Y,N,,1,Shopify,,,LOW
-Il mio negozio,https://tm1qsu-0e.myshopify.com,fashion,0,N,N,N,,0,Shopify,,,LOW
-Abbigliamento e Calzature Torino,https://www.fravshop.com,fashion,933,Y,Y,Y,08896760017,4,Shopify,fravshoponline@gmail.com,+39 379 239 31 22,HIGH
-Officine Creative,https://officinecreative.myshopify.com,fashion,144,N,Y,N,02351200445,1,Shopify,contact@officinecreativeitalia.com,+39 02 5501 3935,LOW
-10corsocomo,https://10corsocomo.com,fashion,144,N,Y,Y,09579180150,2,Shopify,3rooms@10corsocomo.com,%20+390229002674,LOW
-Verdura Shoes,https://verdura.myshopify.com,fashion,42,N,Y,Y,,2,Shopify,info@verdurashoes.com,,LOW
-T.U.K. Footwear,https://www.tukshoes.com,fashion,147,N,Y,Y,,2,Shopify,%70ress@tukshoe%73.com,110.00 107,LOW
-rocket,https://b-rocket.myshopify.com,fashion,306,Y,Y,N,02002260434,3,Shopify,info@b-rocket.it,02002260434,HIGH
-PHOEBE PHILO,https://int.phoebephilo.com,fashion,1000,N,Y,Y,,3,Shopify,clientservices@phoebephilo.com,,HIGH
-Lems Shoes,https://lemsshoes.myshopify.com,fashion,450,Y,Y,N,,3,Shopify,support@lemsshoes.com,1650315307,HIGH
-Hair Gallery,https://www.hair-gallery.it,beauty,162,Y,Y,Y,02388740447,3,Shopify,customercare@hair-gallery.it,+39 0734 861081,HIGH
-Phormulis,https://phormulis.myshopify.com,beauty,54,Y,Y,Y,01615440342,3,Shopify,info@catellanigroup.com,01615440342,HIGH
-Alòlab,https://alo-pop-cosmetics.myshopify.com,beauty,177,Y,Y,N,08695610728,2,Shopify,alo.cosmetici@gmail.com,1746379985,LOW
-Offerte e Sconti,https://fashion-cosmetics-shop.myshopify.com,beauty,24,Y,Y,N,01302780778,2,Shopify,f.cosmetics@hotmail.com,01302780778,LOW
-SKIN FIRST®,https://www.skinfirstcosmetics.it,beauty,462,Y,Y,Y,11241570966,4,Shopify,servizioclienti@skinfirst.it,11241570966,HIGH
-Profumeria Eleda,https://profumeria-eleda.myshopify.com,beauty,24,Y,Y,N,,2,Shopify,adeledassu@gmail.com,+39 3291159819,LOW
-Natural Anti,https://totally-natural-skincare.myshopify.com,beauty,108,Y,N,N,,1,Shopify,totallynaturalskincare@outlook.com,01947 606565,LOW
-Dan John,https://danjohn.com,accessories,366,Y,Y,Y,13493011004,4,Shopify,expansion@danjohn.com,+39 06 45596260,HIGH
-The Gardiane Boot,https://www.labottegardiane.com,accessories,36,N,Y,N,,1,Shopify,info@labottegardiane.com,+33466732085,LOW
-petrune,https://petrune.myshopify.com,accessories,432,N,Y,N,,2,Shopify,petrune@petrune.com,607 277 1930,LOW
-Relax Garden,https://relaxgarden-london.myshopify.com,accessories,66,Y,Y,N,,2,Shopify,relaxgardenvienna@gmail.com,,LOW
-Ornamentation of the Body and Soul,https://www.banastudio.in,accessories,96,Y,Y,N,,2,Shopify,,+919810642442,LOW
-Campus Store,https://b4d891.myshopify.com,accessories,96,Y,Y,N,,2,Shopify,CampusStore@lschs.org,045171847849,LOW
-Sledworkuk,https://sledworkuk.myshopify.com,accessories,141,Y,Y,N,07834725152,2,Shopify,sledwork@sledworkuk.co.uk,04/14/2026,LOW
-50%,https://www.finsbury-shoes.com,accessories,132,N,Y,N,,1,Shopify,service.client@finsbury-shoes.com,01 84 23 30 59,LOW
-Golden Editions,https://golden-editions.com,home,219,N,Y,N,,2,Shopify,info@golden-editions.com,,LOW
+Best Fragrances,https://khadlaj-perfumes.com,beauty,57,Y,Y,Y,,3,Shopify,customercare@khadlaj-perfumes.com,+971%20521211992,HIGH
+Scent,https://www.scentperfume.it,beauty,78,N,Y,N,,1,Shopify,,0118968496,LOW
+The Perfume & Skincare Company,https://perfume-skincare-company.myshopify.com,beauty,30,Y,Y,N,,2,Shopify,info@perfumeandskincare.com.au,1642471355,LOW
+Premium Perfumes Arabic & French Fragrances in Pakistan,https://thebigbossstore.com,beauty,750,Y,Y,Y,,4,Shopify,info@thebigbossstore.com,+92 3279998777,HIGH
+Noted Aromas,https://www.notedaromas.co.uk,beauty,483,Y,Y,N,,3,Shopify,contact@notedaromas.co.uk,01/06/2026,HIGH
+Meleg Ltd,https://www.melegperfumes.com,beauty,312,Y,Y,Y,,4,Shopify,perfumer@melegperfumes.com,1169960732,HIGH
+DIME® Beauty,https://dimebeautyco.com,beauty,312,Y,Y,N,,3,Shopify,,1743528573,HIGH
+Osmology by Aery,https://osmology.co.uk,beauty,300,Y,Y,N,,3,Shopify,online@aeryliving.com,1665576741,HIGH
+DOXA,https://doxa-watches-de.myshopify.com,accessories,984,Y,Y,Y,,4,Shopify,contact.eu@doxawatches.com,+49 72 31 93 12 19,HIGH
+Yoshi,https://www.yoshihandmade.it,accessories,96,Y,Y,Y,04610770987,3,Shopify,yoshihandmadestore@gmail.com,04610770987,HIGH
+IFL Watches,https://iflwatches.co.uk,accessories,372,Y,Y,Y,,4,Shopify,contact@iflwatches.com,+971562457162,HIGH
+GALLERY OF DREAMS Luxusuhren,https://goatwatch.myshopify.com,accessories,150,N,Y,N,,1,Shopify,request@galleryofdreams.com,152 06490125,LOW
+For the Watch Lovers,https://laurent-fine-watches.myshopify.com,accessories,162,N,Y,N,,1,Shopify,laurent@laurentfinewatches.com,,LOW
+Woodstock Zambon,https://www.woodstockzambon.com,accessories,114,Y,Y,Y,04015900246,3,Shopify,info@woodstockzambon.com,00-12.30 15.00,HIGH
+Beaucroft,https://beaucroftwatches.com,accessories,66,Y,Y,N,,2,Shopify,hello@beaucroftwatches.com,7732108850,LOW
 Artigianato Pasella,https://artigianatopasella.myshopify.com,home,96,Y,Y,Y,02586090900,3,Shopify,magazzinopasella@gmail.com,02586090900,HIGH
-Bottleeden,https://bottleeden.myshopify.com,home,48,Y,Y,N,04653510273,2,Shopify,bottleeden@gmail.com,04653510273,LOW
-Red Mud Lighting,https://red-mud.myshopify.com,home,84,N,Y,N,,1,Shopify,redmuduk@aol.com,01963 370010,LOW
-Heathfield & Co Outlet,https://heathfield-co-outlet.myshopify.com,home,96,Y,Y,N,,2,Shopify,marketing@heathfield.co.uk,1689252310,LOW
-Joshua Creek Furniture and Home Decor,https://joshuacreekfurniture.com,home,180,Y,Y,Y,,3,Shopify,info@joshuacreekfurniture.com,905-842-3739,HIGH
-"Tsé & Tsé Paris, maison française de design",https://tse-tse.com,home,321,N,Y,N,,2,Shopify,contact@tse-tse.com,1603275102,LOW
-1825 SRL,https://serralunga.myshopify.com,home,300,Y,Y,Y,02711740023,4,Shopify,info@serralunga.com,+39 015 243 5711,HIGH
+The Rugs,https://the-rugs.com,home,279,Y,Y,N,,3,Shopify,info@the-rugs.com,0691/8363/5772,HIGH
+Lorena Canals,https://lorenacanals.us,home,360,N,Y,N,,2,Shopify,help@lorenacanals.com,1736949953,LOW
+LOUISE ROE,https://louise-roe.com,home,369,N,Y,N,,2,Shopify,INFO@LOUISE-ROE.COM,32933424,LOW
+https,https://ikon-house-furniture.myshopify.com,home,123,N,Y,N,,1,Shopify,dubai@ikonhouse.com,,LOW
+Marche Rue Dix,https://marche-rue-dix.myshopify.com,home,156,Y,Y,N,,2,Shopify,,1614292506,LOW
+Notah,https://notahdineh.myshopify.com,home,0,Y,Y,N,,2,Shopify,,1754003122,LOW
+Layered Lounge,https://layez.myshopify.com,home,162,N,Y,Y,,2,Shopify,info@layeredlounge.com,01753 883862,LOW
+Bis zu 70% Rabatt,https://hadorn-swiss.myshopify.com,home,18,N,Y,N,,1,Shopify,info@hadorn.com,+41565991334,LOW
