@@ -1,33 +1,38 @@
 brand,main_domain,category,sku,Text Only Search,UX Designed,PMI,P.IVA,Score 0-4,Platform,Email,Tel,Priority
-Dan John,https://danjohn.com,fashion,903,Y,Y,Y,13493011004,4,Shopify,expansion@danjohn.com,+39 06 45596260,HIGH
-Brixton Europe,https://brixtonbxe.myshopify.com,fashion,360,Y,Y,Y,,4,Shopify,info.eu@brixton.com,1706053922,HIGH
-Rein Love Clothing,https://reinloveclothing.com,fashion,483,Y,Y,Y,,4,Shopify,hello@reinlove.com,4740857410,HIGH
 Muc,https://muc-off-eu.myshopify.com,fashion,126,Y,Y,N,,2,Shopify,customerservice@muc-off.com,1202 307791,LOW
-Eat Dust Clothing,https://eat-dust.myshopify.com,fashion,393,N,Y,N,,2,Shopify,shop@eatdustclothing.com,347.00 36 37 38,LOW
-Clothing Shop Online,https://checkout.clothingshoponline.com,fashion,96,Y,Y,N,,2,Shopify,info@clothingshoponline.com,855-655-8130,LOW
-Campus Sutra,https://campussutra.com,fashion,672,Y,Y,Y,,4,Shopify,support@campussutra.com,+919900008413,HIGH
-Double Trouble Bologna,https://doubletroublebologna-com.myshopify.com,fashion,162,N,Y,N,03717941201,1,Shopify,info@doubletroublebologna.it,03717941201,LOW
-General Pants Co.,https://www.generalpants.com,fashion,3,N,Y,N,,1,Shopify,customerservice@generalpantsgroup.com,1739289945,LOW
-Calamo,https://calamo-store.myshopify.com,fashion,120,Y,Y,Y,,3,Shopify,,03111032030000000011,HIGH
-JPMS Italia,https://jpms-it.myshopify.com,beauty,108,Y,Y,N,14095041001,2,Shopify,tempo-di-asciug@ura-ri.to,14095041001,LOW
+Peloton Apparel,https://apparel.onepeloton.com,fashion,96,Y,Y,N,,2,Shopify,,,LOW
+MOVING LIMITS,https://ml-project.myshopify.com,fashion,60,N,Y,N,,1,Shopify,,,LOW
+Brixton Europe,https://brixtonbxe.myshopify.com,fashion,360,Y,Y,N,,3,Shopify,info.eu@brixton.com,1706053922,HIGH
+GV Art + Design,https://gvartwork.com,fashion,300,Y,Y,N,,3,Shopify,gvartwork@gmail.com,44011 440.937.0351,HIGH
+Daily,https://www.daily-apparel.com,fashion,102,Y,Y,N,,2,Shopify,Sales@daily-apparel.com,,LOW
+Lions Clubs International,https://lionsclubsinternational.myshopify.com,fashion,384,Y,Y,N,,3,Shopify,orderdetails@lionsclubs.org,2025-2026,HIGH
+Primo Golf Apparel,https://primo-golf-apparel.myshopify.com,fashion,321,Y,Y,N,18555741056,3,Shopify,store@primogolfapparel.com,1708548267,HIGH
+Till I Die Apparel,https://tillidie.com,fashion,84,Y,Y,N,,2,Shopify,orders@tillidie.com,1759523110,LOW
+Muse Apparel,https://www.muse-apparel.com,fashion,570,Y,Y,N,,3,Shopify,orders@shopatmuse.com,112.0746794,HIGH
+New Nails System,https://www.newnailssystem.shop,beauty,138,Y,Y,Y,05839820650,3,Shopify,newnailsystem@gmail.com,+39 3519891557,HIGH
+Sweed Beauty®,https://www.sweedbeauty.global,beauty,900,Y,Y,N,,3,Shopify,info@sweedbeauty.com,14893875626316,HIGH
 Offerte e Sconti,https://fashion-cosmetics-shop.myshopify.com,beauty,24,Y,Y,N,01302780778,2,Shopify,f.cosmetics@hotmail.com,01302780778,LOW
-Cinemuseum,https://cinemuseum.myshopify.com,beauty,135,Y,Y,Y,,3,Shopify,info@cinemuseum.store,07070678210000008571,HIGH
-L’Erbolario,https://www.erbolario.com,beauty,468,Y,Y,Y,07580080153,4,Shopify,estr@ti-vegetali-autopro.ti,07580080153,HIGH
-Green Soul Cosmetics,https://www.greensoulcosmetics.com,beauty,186,Y,Y,Y,03511110987,3,Shopify,info@greensoulcosmetics.com,+39 0365 21050,HIGH
+Atelier Artistic Parfum,https://profumeriemake-up.myshopify.com,beauty,120,Y,Y,N,02155570431,2,Shopify,atelierartisticparfum@gmail.com,02155570431,LOW
+ETOILE,https://etoile.com,beauty,753,N,Y,Y,,3,Shopify,support@etoile.com,1690288728,HIGH
+Permanent Makeup Supplies & Cosmetic Tattoo Equipment,https://girlzink-store.myshopify.com,beauty,615,Y,Y,N,,3,Shopify,info@girlzink.com,+17028098237,HIGH
+Lisa Eldridge Beauty,https://us.lisaeldridge.com,beauty,690,N,Y,N,,2,Shopify,jewels@lisaeldridge.com,3419520690432849833,LOW
+Balato Beauty,https://marcellabalato.myshopify.com,beauty,240,Y,Y,N,,3,Shopify,marcella@balato.it,+39 347 708 6498,HIGH
+LOLA Make Up,https://lolamakeup.com,beauty,372,Y,Y,N,,3,Shopify,info@aepcorp.co.uk,1613696632,HIGH
+MPM MATTACE,https://mpm-shop.myshopify.com,beauty,72,Y,Y,N,,2,Shopify,LOASIDELBENESSERE@ME.COM,1712147544,LOW
 10corsocomo,https://10corsocomo.com,accessories,144,Y,Y,Y,09579180150,3,Shopify,3rooms@10corsocomo.com,%20+390229002674,HIGH
-P.IVA 03258301203,https://vittorio-ceccoli-jewelry-design.myshopify.com,accessories,72,Y,Y,N,03258301203,2,Shopify,info@vittorioceccoli.it,+ 39 339 1734134,LOW
-Sha.Rù Gioielli,https://sharu.it,accessories,237,N,Y,Y,04689890962,3,Shopify,info@sharu.it,00393393512648,HIGH
-Scopri il Mondo di Kidult!,https://www.discoverkidult.com,accessories,120,Y,Y,Y,12647620157,3,Shopify,clienti@mabina.it,02-72080581,HIGH
-précieuse,https://maisondigiorgio.paris,accessories,96,N,Y,N,,1,Shopify,commande@digiorgio.fr,1738721707,LOW
-Artigianato Pasella,https://artigianatopasella.myshopify.com,accessories,96,Y,Y,Y,02586090900,3,Shopify,magazzinopasella@gmail.com,02586090900,HIGH
-Ring Concierge Fine Jewelry,https://ringconcierge.com,accessories,9,Y,Y,N,,2,Shopify,info@ringconcierge.com,1359/2701,LOW
-18K,https://riccajewelry.com,accessories,120,N,Y,N,,1,Shopify,admricca18k@gmail.com,,LOW
-boops jewelry,https://www.boops-jewelry.com,accessories,81,Y,Y,N,,2,Shopify,care@boops-jewelry.com,1714897442,LOW
-Tovagliette Artigianali Personalizzate,https://plumeriahome.myshopify.com,home,123,Y,Y,N,01945260519,2,Shopify,info@plumeriahome.com,01945260519,LOW
-Supergal,https://supergal-s-r-l.myshopify.com,home,129,Y,Y,N,11891190156,2,Shopify,elio@supergal.it,02.9084.1533,LOW
-Happy Casa Store Shop Online,https://shop.happycasastore.it,home,66,Y,Y,Y,02708430737,3,Shopify,info@happycasastore.it,02708430737,HIGH
-Make up Artist Ciro Fashion,https://cirofashionmakeupartist.myshopify.com,home,402,Y,Y,N,,3,Shopify,info@cirofashionmakeupartist.com,652 61 62 77,HIGH
-Materiali Sonori,https://materiali-sonori.myshopify.com,home,72,Y,Y,N,00324820513,2,Shopify,booking@matson.it,00324820513,LOW
-Bitre Sport,https://bitreshop.myshopify.com,home,216,Y,Y,Y,03157090139,4,Shopify,bitre@legalmail.it,+390392185772,HIGH
-Lebeau Perfumery,https://lebeau-perfumery.myshopify.com,home,72,Y,Y,N,04507750232,2,Shopify,info@lebeauperfumery.com,1614279303,LOW
-Harmony Castle,https://harmonycastle.it,home,372,N,Y,Y,13753541005,3,Shopify,info@harmonycastle.it,13753541005,HIGH
+Persol® US,https://www.persol.com,accessories,192,N,Y,Y,,2,Shopify,news@email.persol.com,1764878184,LOW
+Bustout Eyewear,https://bustout-eyewear.myshopify.com,accessories,288,Y,Y,Y,09095731213,4,Shopify,info@bustouteyewear.it,+39 081 18639971,HIGH
+"Polarized, On",https://neveneyewear.com,accessories,1000,Y,Y,Y,,4,Shopify,info@neveneyewear.com,+13213991661,HIGH
+Perfecting the Art of Eyewear,https://dita.com,accessories,240,Y,Y,Y,,4,Shopify,support@dita.com,1681333760,HIGH
+OnlyLens,https://onlylens.com,accessories,288,Y,Y,Y,,4,Shopify,info@onlylens.com,+34 930 042 410,HIGH
+Alpinamente® Performance Sunglasses,https://www.alpinamente.com,accessories,132,N,Y,N,,1,Shopify,%20info@alpinamente.com,180.00 2841,LOW
+Bonnie Clyde®,https://bonnie-clyde-la.myshopify.com,accessories,120,N,Y,N,,1,Shopify,hello@bonnieclyde.la,,LOW
+EPOKHE Eyewear,https://us.epokhe.co,accessories,1000,N,Y,N,,2,Shopify,campbell@epokhe.co,,LOW
+Official Site,https://banbeeyewear.myshopify.com,accessories,21,Y,Y,N,,2,Shopify,enquiries@banbeeyewear.com,7501 0015,LOW
+Damiano Latini,https://damiano-latini.myshopify.com,home,69,Y,Y,Y,01410060436,3,Shopify,info@damianolatini.it,+39.0734.894144,HIGH
+Mor Furniture for Less,https://www.morfurniture.com,home,324,Y,Y,N,,3,Shopify,customerservice@morfurniture.com,1765247813,HIGH
+Arredo Bagno e Living,https://www.tfthomefurniture.com,home,294,Y,Y,N,02418200412,3,Shopify,supporto@tfthomefurniture.com,02418200412,HIGH
+Bouclair,https://www.bouclair.com,home,74,N,Y,Y,,2,Shopify,privacy@bouclair.com,,LOW
+Multi,https://expandfurniture.com,home,240,Y,Y,N,,3,Shopify,contact@expandfurniture.com,123.165606,HIGH
+Blims Fine Furniture,https://blimsfurniture.com.ph,home,288,Y,Y,N,,3,Shopify,online@blimsfurniture.com.ph,1771551535,HIGH
+Bel Furniture,https://belfurniture.com,home,165,Y,Y,N,,2,Shopify,delivery@belfurniture.com,+18323588899,LOW
