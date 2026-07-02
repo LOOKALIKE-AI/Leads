@@ -1,37 +1,34 @@
 brand,main_domain,category,sku,Text Only Search,UX Designed,PMI,P.IVA,Score 0-4,Platform,Email,Tel,Priority
-Billy J,https://billyj.com,fashion,1000,Y,Y,N,,3,Shopify,customerservice@billyj.com.au,153.131408,HIGH
-Wendy Trendy s.r.l.,https://www.wendytrendy.com,fashion,144,Y,Y,Y,02287390971,3,Shopify,info@wendytrendy.com,+39 3341197869,HIGH
-Petal & Pup,https://petalandpup.com,fashion,246,Y,Y,N,26688553034,3,Shopify,contactus@petalandpup.com,1300.363.992,HIGH
-to,https://www.oscardelarenta.com,fashion,597,Y,Y,N,,3,Shopify,customercare@odlr.com,+18887826357,HIGH
-Milla,https://itsmilla.com,fashion,771,Y,Y,N,,3,Shopify,customercare@itsmilla.com,0477/2131/6519,HIGH
 10corsocomo,https://10corsocomo.com,fashion,144,Y,Y,Y,09579180150,3,Shopify,3rooms@10corsocomo.com,%20+390229002674,HIGH
-Peppermayo,https://peppermayo.com,fashion,3,Y,Y,N,,2,Shopify,hello@peppermayo.com.au,,LOW
-T.Luxy,https://it.tluxy.com,fashion,969,Y,Y,Y,06700101212,4,Shopify,customercare@tluxy.it,042471352,HIGH
-Chi Chi London,https://www.chichiclothing.com,fashion,333,N,Y,Y,,3,Shopify,customerinfo@chichiclothing.com,0939/3953/2101,HIGH
-Pretty Lavish,https://prettylavish.co.uk,fashion,9,N,Y,N,,1,Shopify,enquiries@prettylavish.com,2013 2024,LOW
-Offerte e Sconti,https://fashion-cosmetics-shop.myshopify.com,beauty,24,Y,Y,N,01302780778,2,Shopify,f.cosmetics@hotmail.com,01302780778,LOW
-Eldan Cosmetics,https://eldancosmetics.it,beauty,216,Y,Y,Y,01709310187,4,Shopify,eldancosmetics@leprestige.com,01709310187,HIGH
+Gallucci Shoes Made in Italy,https://www.galluccishoes.it,fashion,144,Y,Y,Y,,3,Shopify,sales@galluccishoes.it,017057780441,HIGH
+Officine Creative,https://officinecreative.myshopify.com,fashion,144,N,Y,N,02351200445,1,Shopify,contact@officinecreativeitalia.com,+39 02 5501 3935,LOW
+Made in Italy,https://gondolina.myshopify.com,fashion,444,N,Y,Y,04888960277,3,Shopify,customercare@gondolinaofficial.com,04888960277,HIGH
+Italian,https://bottega-amati.myshopify.com,fashion,78,N,Y,N,11739300967,1,Shopify,info@solarimilano.com,11739300967,LOW
+Scarpe artigianali fatte a Venezia. Benvenuto in Lordh,https://lordh.it,fashion,831,Y,Y,N,05301550280,3,Shopify,custom-sw@ch-.is,+39 3493073484,HIGH
 SKIN FIRST®,https://www.skinfirstcosmetics.it,beauty,441,Y,Y,Y,11241570966,4,Shopify,servizioclienti@skinfirst.it,08/07/2026,HIGH
+Hair Gallery,https://www.hair-gallery.it,beauty,216,Y,Y,Y,02388740447,4,Shopify,customercare@hair-gallery.it,+39 0734 861081,HIGH
+ADC SKINCARE Antonia Delle Cave,https://www.adcskincare.it,beauty,207,Y,Y,N,,3,Shopify,info.adcskincare@gmail.com,013557,HIGH
 BGS Cosmetics,https://bgs-eco-friendly-consumer-products.myshopify.com,beauty,222,Y,Y,Y,12318670960,4,Shopify,info@bgsproducts.it,12318670960,HIGH
-Sicula Cosmetics,https://siculacosmetics.com,beauty,180,Y,Y,Y,,3,Shopify,siculacosmetics.info@gmail.com,0916154793,HIGH
-Eterea Cosmesi,https://etereacosmesi.it,beauty,144,Y,Y,Y,04489780611,3,Shopify,customer@etereacosmesi.it,04489780611,HIGH
-lavcosmetics,https://lavworld.it,beauty,216,Y,Y,N,,3,Shopify,,1776456374,HIGH
-SHUSA,https://shusa-cosmetics.myshopify.com,beauty,72,Y,Y,N,01577440439,2,Shopify,,01577440439,LOW
-Barò Cosmetics,https://beautybaro.com,beauty,0,N,N,N,,0,Shopify,,,LOW
-Hammitt,https://www.hammitt.com,accessories,189,Y,Y,Y,,3,Shopify,wecare@hammitt.com,1742243991,HIGH
-Double Trouble Bologna,https://doubletroublebologna-com.myshopify.com,accessories,162,N,Y,N,03717941201,1,Shopify,info@doubletroublebologna.it,+39 349 3328224,LOW
-Latico Leathers,https://laticoleathers.com,accessories,414,Y,Y,N,,3,Shopify,info@laticoleathers.com,1676869913,HIGH
-Gabriela Hearst,https://gabrielahearst.com,accessories,804,N,Y,Y,,3,Shopify,beverlyhills@gabrielahearst.com,212 228 8181,HIGH
-HOBO,https://www.hobobags.com,accessories,9,Y,Y,N,,2,Shopify,customerservice@hobobags.com,866-516-6042,LOW
-Paul Costelloe Bags,https://paulcostelloebags.com,accessories,309,Y,Y,N,,3,Shopify,sales@paulcostelloebags.com,,HIGH
-Rocio — Sculptural Handbags,https://www.houseofrocio.com,accessories,234,N,Y,Y,,3,Shopify,info@houseofrocio.com,1741846740,HIGH
-"Women's Handbags, Clutches, & Purses",https://verano-hill.myshopify.com,accessories,636,Y,Y,N,,3,Shopify,support@veranohill.com,,HIGH
-Abilah Home Decor,https://abilahhomedecor.com,home,96,Y,Y,N,10262151219,2,Shopify,info@abilahhomedecor.com,+39 3421010157,LOW
-MIFU Decor,https://mifudecor.com,home,96,N,Y,N,,1,Shopify,,+19029896725,LOW
-Home Simple Decor & More,https://homesimpledecor.com,home,96,Y,Y,N,,2,Shopify,homesimplellc@gmail.com,,LOW
-Amor home decor,https://amorhomedecor.myshopify.com,home,96,Y,Y,N,,2,Shopify,martinapizzarelli@hotmail.com,1724953820,LOW
-Malida Décor,https://www.malidadecor.com,home,372,Y,Y,N,,3,Shopify,info@malidadecor.com,1777112865,HIGH
-MIMADE Atelier di design,https://mimade-conceptstore.myshopify.com,home,72,Y,Y,N,09047850962,2,Shopify,info@mimade.it,+393248613526,LOW
-decorstore,https://decorstore.com.au,home,144,N,Y,N,,1,Shopify,info@decorstore.com.au,1707810178,LOW
-M-Maison,https://www.m-maison.net,home,504,N,Y,N,,2,Shopify,info@m-maison.net,1758032853,LOW
-Sekelskifte,https://www.sekelskifte.com,home,72,N,Y,N,,1,Shopify,info@sekelskifte.se,08 - 41 00 93 25,LOW
+Dora Skincare,https://doraskincare.com,beauty,42,Y,Y,Y,16938541006,3,Shopify,love@doraskincare.com,16938541006,HIGH
+Il Lavandeto Di Assisi,https://illavandetodiassisi.it,beauty,216,Y,Y,N,02702760543,3,Shopify,lavandeto@gmail.com,02702760543,HIGH
+Eco Bio Boutique,https://ecobioboutique.it,beauty,288,Y,Y,N,16233951009,3,Shopify,assistenza@ecobioboutique.it,16233951009,HIGH
+to,https://codage-paris-fr.myshopify.com,beauty,228,Y,Y,Y,,4,Shopify,info@mycodage.com,519 259 162 0001,HIGH
+Skincare Junkie® by Dr. Blair Rose,https://skincarejunkie.com,beauty,111,N,Y,N,,1,Shopify,hello@skincarejunkie.com,1751232228,LOW
+Bubble,https://hellobubble.myshopify.com,beauty,1000,Y,Y,Y,,4,Shopify,love@hellobubble.com,44915138,HIGH
+50%,https://www.finsbury-shoes.com,accessories,132,N,Y,N,,1,Shopify,service.client@finsbury-shoes.com,01 84 23 30 59,LOW
+BeltUp,https://beltuponline.myshopify.com,accessories,300,Y,Y,N,,3,Shopify,orders@beltuponline.com.au,0434018450,HIGH
+Joe's Accessories,https://joesbelts.myshopify.com,accessories,96,Y,Y,N,,2,Shopify,,1633358570,LOW
+Dean accessories,https://deanaccessories.net,accessories,144,N,Y,N,,1,Shopify,Junko@powerontrading.com,310-869-6536,LOW
+Dalydress Egypt,https://dalydress.com,accessories,135,Y,Y,N,01033337346,2,Shopify,support@dalydress.com,01012620642,LOW
+Custom hand,https://www.baldwinbelts.com,accessories,162,Y,Y,Y,,3,Shopify,joanne@baldwinbelts.com,1771981618,HIGH
+Morris Classic,https://www.morrisclassic.com,accessories,144,N,Y,N,,1,Shopify,sales@morrisclassic.com,1650398549,LOW
+,https://venturi-belt-co.myshopify.com,accessories,81,Y,Y,N,,2,Shopify,info@venturibelt.com,,LOW
+Alfresco Emporium,https://alfrescoemporium.com.au,home,81,Y,Y,Y,,3,Shopify,customercare@alfrescoemporium.com.au,+61299190600,HIGH
+Lulu and Georgia,https://lulu-and-georgia.myshopify.com,home,3,N,Y,Y,,2,Shopify,support@luluandgeorgia.com,06.01.2026,LOW
+Artigianato Pasella,https://artigianatopasella.myshopify.com,home,96,Y,Y,Y,02586090900,3,Shopify,magazzinopasella@gmail.com,02586090900,HIGH
+Aqua Creations Studio,https://aquagallery.com,home,330,Y,Y,N,,3,Shopify,info@aquagallery.com,1776386175,HIGH
+BlackLegacyLamps,https://blacklegacylamps.myshopify.com,home,72,Y,Y,N,,2,Shopify,,1777277222,LOW
+Nkuku,https://www.nkuku.com,home,558,Y,Y,Y,,4,Shopify,hello@nkuku.com,04614918,HIGH
+"Tsé & Tsé Paris, maison française de design",https://tse-tse.com,home,324,N,Y,N,,2,Shopify,contact@tse-tse.com,1603275102,LOW
+Lamp Express USA,https://lamp-express-usa.myshopify.com,home,144,Y,Y,Y,,3,Shopify,sales@lexusa.com,170.0301/01,HIGH
+Holloways of Ludlow,https://www.hollowaysofludlow.com,home,1000,Y,Y,N,,3,Shopify,customerservice@hollowaysofludlow.com,020 7602 5757,HIGH
