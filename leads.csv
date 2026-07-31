@@ -1,21 +1,40 @@
 brand,main_domain,category,sku,Text Only Search,UX Designed,PMI,P.IVA,Score 0-4,Platform,Email,Tel,Priority
-Chic Shoes,https://chicshoes.eu,fashion,288,Y,Y,N,08926021216,3,Shopify,chicmarziachiarasrls@legalmail.it,+39 3271834548,HIGH
-Lorenzi Shoes,https://www.lorenzishoes.it,fashion,69,Y,Y,N,00985170448,2,Shopify,lorenzi@lorenzishoes.it,+39 0734628358,LOW
-Polo Calzature,https://poloshoes.it,fashion,72,Y,Y,N,02421570264,2,Shopify,poloshoes@live.it,02421570264,LOW
+PIANIGIANI,https://pianigianibags.com,fashion,363,Y,Y,Y,01488370527,4,Shopify,info@pianigianibags.com,+39 0577 806067,HIGH
+QGbags,https://qgbags.com,fashion,96,Y,N,Y,11436760968,2,Shopify,info@qgbags.it,+39 331 1888 358,LOW
 10corsocomo,https://10corsocomo.com,fashion,144,Y,Y,Y,09579180150,3,Shopify,3rooms@10corsocomo.com,%20+390229002674,HIGH
-Made in Italy,https://gondolina.myshopify.com,fashion,444,N,Y,Y,04888960277,3,Shopify,customercare@gondolinaofficial.com,04888960277,HIGH
-T.Luxy,https://it.tluxy.com,fashion,633,Y,Y,Y,06700101212,4,Shopify,customercare@tluxy.it,042471352,HIGH
-Otisopse,https://www.otisopse.com,fashion,291,Y,Y,N,08490801217,3,Shopify,info@otisopse.com,+39 3751285556,HIGH
-Officine Creative,https://officinecreative.myshopify.com,fashion,147,N,Y,N,02351200445,1,Shopify,contact@officinecreativeitalia.com,+39 02 5501 3935,LOW
-Scarpe artigianali fatte a Venezia. Benvenuto in Lordh,https://lordh.it,fashion,831,Y,Y,N,05301550280,3,Shopify,custom-sw@ch-.is,+39 3493073484,HIGH
-Cosmetici Biologici e Naturali,https://www.lucebeauty.it,beauty,111,Y,Y,N,,2,Shopify,info@lucebeauty.it,+39063236611,LOW
-Korff,https://www.korff.it,beauty,108,Y,Y,Y,10372750967,3,Shopify,ecommerce@korff.it,+39 02 534106,HIGH
-SKIN FIRST®,https://www.skinfirstcosmetics.it,beauty,441,Y,Y,Y,11241570966,4,Shopify,servizioclienti@skinfirst.it,11241570966,HIGH
-Kumiho,https://kumiho.it,beauty,222,Y,Y,Y,13486390969,4,Shopify,,13486390969,HIGH
-Skön Cosmetics,https://skoncosmetics.com,beauty,516,Y,Y,Y,12296350015,4,Shopify,HeaderDrawer-c@alogo-corpo-tutti-i-pro.ti,12296350015,HIGH
-Hair Gallery,https://www.hair-gallery.it,beauty,180,Y,Y,Y,02388740447,3,Shopify,customercare@hair-gallery.it,+39 0734 861081,HIGH
-Il Lavandeto Di Assisi,https://illavandetodiassisi.it,beauty,216,Y,Y,Y,02702760543,4,Shopify,lavandeto@gmail.com,02702760543,HIGH
-Arval Cosmetici®,https://www.arvalcosmetici.com,beauty,321,Y,Y,N,00792900151,3,Shopify,info@arvalcosmetici.com,+390258321002,HIGH
-to,https://codage-paris-fr.myshopify.com,beauty,46,Y,Y,Y,81519259162,3,Shopify,info@mycodage.com,2000 06730,HIGH
-Dora Skincare,https://doraskincare.com,beauty,24,Y,Y,Y,16938541006,3,Shopify,love@doraskincare.com,16938541006,HIGH
-Will Leather Goods,https://willleathergoods.com,accessories,3,Y,Y,N,,2,Shopify,info@willleathergoods.com,+1.877.467.0436,LOW
+Vistamarebags,https://vistamarebags.com,fashion,96,Y,Y,Y,01607370499,3,Shopify,fahr.julia@gmail.com,01607370499,HIGH
+Anema,https://www.anemabags.com,fashion,288,N,Y,N,08793451215,2,Shopify,info@anemabags.com,08793451215,LOW
+Hibourama,https://hibourama.it,fashion,204,Y,Y,N,,3,Shopify,customercare@hiboourama.it,+39 347 926 3665,HIGH
+Bric's Milano,https://www.bricsmilano.com,fashion,504,Y,Y,Y,00793550138,4,Shopify,info@brics.it,00793550138,HIGH
+Break Archive,https://breakarchive.com,fashion,72,N,Y,N,,1,Shopify,contact@breakarchive.com,7588445641,LOW
+Ebarrito,https://ebarrito.com,fashion,141,Y,Y,N,,2,Shopify,info@ebarrito.com,+39 0374 936058,LOW
+Site officiel,https://www.hervechapelier.com,fashion,432,Y,Y,N,,3,Shopify,online@Hervechapelier.com,15317340422529,HIGH
+Mine Perfume Lab,https://www.mineperfumelab.com,beauty,351,Y,Y,Y,08197991212,4,Shopify,customer@mineperfumelab.com,+39 0812135158,HIGH
+Coral Perfumes Official,https://www.coralperfumes.com,beauty,432,Y,Y,N,,3,Shopify,care@coralperfumes.com,1767704440,HIGH
+"Perfume, Body care, Hand care, Gift set",https://nonfiction.com,beauty,324,Y,Y,Y,,4,Shopify,help@nonfiction-beauty.com,,HIGH
+Perfume Empire,https://www.perfume-empire.com,beauty,288,Y,Y,N,,3,Shopify,sales@perfume-empire.com,,HIGH
+Fragrance Du Bois,https://fragrancedubois.com,beauty,297,Y,Y,N,,3,Shopify,,1727172406,HIGH
+Campomarzio70 The Essential Online Boutique,https://shop.campomarzio70.it,beauty,72,Y,Y,Y,07701661006,3,Shopify,campomarzio2003@pec.it,0669922170,HIGH
+Perfume Network India,https://www.perfumenetwork.in,beauty,306,N,Y,N,,2,Shopify,care@perfumenetwork.in,,LOW
+PARFUM.AE,https://parfum.ae,beauty,450,Y,Y,N,,3,Shopify,info@parfum.ae,150.00 100,HIGH
+The Perfume Experience,https://theperfumeexperience.in,beauty,120,Y,Y,N,,2,Shopify,info@theperfumeexperience.in,+919019864119,LOW
+Essentia Puglia,https://essentiapuglia.myshopify.com,beauty,264,Y,Y,N,02434510745,3,Shopify,pagin@ion.corresponding,1613537657,HIGH
+"Rolex, OMEGA & More",https://www.watchesofswitzerland.com,accessories,270,Y,Y,Y,,4,Shopify,DPO@thewosgroup.com,(201) 621-0950,HIGH
+Zelos,https://zelos-watches.myshopify.com,accessories,96,N,Y,Y,,2,Shopify,hello@zeloswatches.com,,LOW
+DOXA,https://doxa-watches-de.myshopify.com,accessories,993,Y,Y,Y,,4,Shopify,contact.eu@doxawatches.com,+49 72 31 93 12 19,HIGH
+Tufina Watches,https://tufinawatches.com,accessories,144,Y,Y,Y,17735539418,3,Shopify,info@tufinawatches.com,+17735539418,HIGH
+Farer Watches,https://farer.com,accessories,162,N,Y,Y,,2,Shopify,enquiries@farer.com,,LOW
+megalith watch,https://www.megalithwatch.com,accessories,72,N,Y,N,,1,Shopify,support@megalithwatch.com,1627367550,LOW
+Croatto1901,https://www.croatto.it,accessories,60,Y,Y,N,,2,Shopify,servizioclienti@croatto.it,+39 0432 25031,LOW
+Timefactors,https://www.timefactors.com,accessories,48,Y,Y,Y,,3,Shopify,%20hello@timefactors.com,0044 114 240 0078,HIGH
+Teddy Baldassarre,https://teddy-baldassarre-watches.myshopify.com,accessories,789,Y,Y,Y,,4,Shopify,sales@teddybaldassarre.com,+12162086736,HIGH
+Boutique Rugs,https://boutiquerugs.com,home,171,Y,Y,Y,,3,Shopify,support@boutiquerugs.com,1624019742,HIGH
+abc carpet & home,https://abchome.com,home,9,N,Y,N,,1,Shopify,customerservice@abchome.com,0560/2223/7322,LOW
+Annie Selke,https://www.annieselke.com,home,294,Y,Y,Y,,4,Shopify,,1-888-846-5643,HIGH
+DUSK,https://dusk.com,home,26,Y,Y,Y,,3,Shopify,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICBpZD0ic2hvcExvZ28iCiAgd2lkdGg9IjIwMCIKICBoZWlnaHQ9IjQ1IgogIHZpZXdCb3g9IjAgMCAyMDAgNDUiCiAgZmlsbD0ibm9uZSIKICByb2xlPSJpbWciCj4KICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTYxNl80ODUyNSkiPgogICAgPHBhdGggZD0iTTE1Ny45OCAwLjUyNzM0NFYyMC4xNzFIMTU4LjE2NUwxNzMuOTQgMC41MjczNDRIMTgzLjI3N0wxNjcuMzI4IDIwLjcyODlMMTg4IDQzLjQwODdIMTc3LjM5M0wxNTcuOTggMjIuMzQ4OVY0My40MDg3SDE0OS42OTZWMC41MjczNDRIMTU3Ljk4WiIgZmlsbD0iY3VycmVudENvbG9yIi8+CiAgICA8cGF0aCBkPSJNMTguMTc0NyAwLjYzNTc0MkMyMi42OTEyIDAuNjM1NzQyIDI2LjcwODQgMS41NDc2NSAzMC4yMjYgMy4zNzE0OEMzMy43NDM3IDUuMTk1MyAzNi40Nzk3IDcuNzQ4NjYgMzguNDIzMSAxMS4wNDIzQzQwLjM2NjUgMTQuMzM1OSA0MS4zNDM3IDE4LjAzNzIgNDEuMzQzNyAyMi4xNTY5QzQxLjM0MzcgMjYuMjc2NiA0MC4zNjY1IDMwLjA3NDQgMzguNDEyMyAzMy4zMTQ0QzM2LjQ1OCAzNi41NTQ0IDMzLjY3ODYgMzkuMDY0OCAzMC4wNzQgNDAuODQ1N0MyNi40Njk1IDQyLjYyNjYgMjIuMzQzOCA0My41MTcxIDE3LjY3NTMgNDMuNTE3MUgwVjAuNjM1NzQySDE4LjE3NDd@TE3LjE1NDEgMzYuOTcyOEMyMS43Njg0IDM2Ljk3MjggMjUuNDcwNiAzNS41OTk1IDI4LjI3MTggMzIuODYzOEMzMS4wNjIgMzAuMTI4MSAzMi40NjI2IDI2LjUzNDEgMzIuNDYyNiAyMi4wOTI1QzMyLjQ2MjYgMTcuNjUxIDMxLjA1MTIgMTMuODUzMSAyOC4yMzkyIDExLjE4MTdDMjUuNDI3MiA4LjUxMDM3IDIxLjYzODEgNy4xODAwNSAxNi44NzE5IDcuMTgwMDVIOC4yNzMwOFYzNi45NzI4SDE3LjE1NDFaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4KICAgIDxwYXRoIGQ9Ik02Mi45MDYzIDAuNTI4MzA2VjI1LjQyODlDNjIuOTA2MyAyNy45ODIyIDYzLjI5NzIgMzAuMDA5OSA2NC4wNjggMzEuNTIyNkM2NC44NDk3IDMzLjAzNTMgNjYuMTIgMzQuMjc5OCA2Ny44Nzg4IDM1LjI1NjFDNjkuNjM3NyAzNi4yMzI0IDcxLjY4OTcgMzYuNzI1OSA3NC4wMzQ4IDM2LjcyNTlDNzYuNjA3OSAzNi43MjU5IDc4Ljc5MDIgMzYuMjY0NSA4MC41ODE2IDM1LjMzMTJDODIuMzczIDM0LjM5NzggODMuNjg2NyAzMy4xMzE5IDg0LjUxMTggMzEuNTMzM0M4NS4zMzcgMjkuOTM0OCA4NS43NjA0IDI3LjcxNCA4NS43NjA0IDI0Ljg3MVYwLjUxNzU3OEg5NC4wNDQzVjI1LjkzMzF.QuMDQ,,HIGH
+The Rugs,https://the-rugs.com,home,147,Y,Y,N,,2,Shopify,TheRugs-Logo-BEYAZ_160x@2x.png,0691/8363/5772,LOW
+RugsDirect,https://rugsdirect.com.au,home,300,Y,Y,Y,,4,Shopify,info@rugsdirect.com.au,1621229087,HIGH
+Rugs.cl,https://rugs.cl,home,126,N,Y,N,,1,Shopify,contacto@rugs.cl,1754345920,LOW
+Early Settler,https://earlysettler.com.au,home,55,Y,Y,Y,,3,Shopify,homeclub@earlysettler.com.au,1300 363 992,HIGH
+Sage and Clare,https://sage-and-clare.myshopify.com,home,1000,N,Y,N,,2,Shopify,gday@sageandclare.com,1773964306,LOW
+Arhaus,https://www.arhaus.com,home,0,N,Y,Y,,2,Shopify,,44236 866-427-4287,LOW
