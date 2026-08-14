@@ -1,24 +1,41 @@
 brand,main_domain,category,sku,Text Only Search,UX Designed,PMI,P.IVA,Score 0-4,Platform,Email,Tel,Priority
-SKA Shoes,https://skashoes.com,fashion,219,Y,Y,N,05790350960,3,Shopify,servizioclienti@skashoes.com,+39 039327157,HIGH
-Lorenzi Shoes,https://www.lorenzishoes.it,fashion,69,Y,Y,N,00985170448,2,Shopify,lorenzi@lorenzishoes.it,+39 0734628358,LOW
-Chic Shoes,https://chicshoes.eu,fashion,288,Y,Y,N,08926021216,3,Shopify,chicmarziachiarasrls@legalmail.it,+39 3271834548,HIGH
-Handmade Italian Shoes for Men & Women,https://www.frau.it,fashion,471,N,Y,Y,00799810239,3,Shopify,customercare@frau.it,00799810239,HIGH
-Harris Shoes 1913,https://us.harrisshoes.it,fashion,45,Y,Y,Y,04098090485,3,Shopify,e-commerce@calzoleriaharris.it,04098090485,HIGH
-T.Luxy,https://it.tluxy.com,fashion,633,Y,Y,Y,06700101212,4,Shopify,customercare@tluxy.it,042471352,HIGH
-"Amphibians, Boots, Loafers and Sneakers",https://en.cultofficial.com,fashion,144,Y,Y,Y,00101700441,3,Shopify,servizioclienti@cultofficial.com,+39 02 87197504,HIGH
-Strategia Shoes,https://strategiashoes.com,fashion,477,Y,Y,Y,01146180433,4,Shopify,servizioclienti@strategiashoes.com,01146180433,HIGH
-Made in Italy,https://gondolina.myshopify.com,fashion,444,N,Y,Y,04888960277,3,Shopify,customercare@gondolinaofficial.com,04888960277,HIGH
-Scarpe di Lusso da Donna,https://us.identitashoes.com,fashion,360,Y,Y,N,07966160728,3,Shopify,supporto@identitashoes.it,+39 0883 955906,HIGH
-Yepoda,https://yepoda.it,beauty,120,Y,Y,Y,,3,Shopify,supporto@yepoda.it,1745847654,HIGH
-Cosmetici Biologici e Naturali,https://www.lucebeauty.it,beauty,111,Y,Y,N,,2,Shopify,info@lucebeauty.it,+39063236611,LOW
-Korff,https://www.korff.it,beauty,108,Y,Y,Y,10372750967,3,Shopify,ecommerce@korff.it,+39 02 534106,HIGH
-SKIN FIRST®,https://www.skinfirstcosmetics.it,beauty,426,Y,Y,Y,11241570966,4,Shopify,servizioclienti@skinfirst.it,03/08/2026,HIGH
-ippun Haru,https://kippun-haru.com,beauty,189,Y,Y,Y,05780230289,3,Shopify,info@kippun-haru.com,00 55938775744836,HIGH
-Hair Gallery,https://www.hair-gallery.it,beauty,180,Y,Y,Y,02388740447,3,Shopify,customercare@hair-gallery.it,+39 0734 861081,HIGH
-Milanesi Skincare I Natural cosmetics I Made in Italy,https://milanesiskincare.com,beauty,279,N,Y,Y,,3,Shopify,export@milanesiskincare.com,1615806181,HIGH
-Skön Cosmetics,https://skoncosmetics.com,beauty,516,Y,Y,Y,12296350015,4,Shopify,HeaderDrawer-c@alogo-corpo-tutti-i-pro.ti,12296350015,HIGH
-Dora Skincare,https://doraskincare.com,beauty,24,Y,Y,Y,16938541006,3,Shopify,love@doraskincare.com,16938541006,HIGH
-Kumiho,https://kumiho.it,beauty,222,Y,Y,Y,13486390969,4,Shopify,,13486390969,HIGH
-Bella Belts,https://www.bellabelts.com,accessories,288,Y,Y,N,,3,Shopify,help@bellabelts.com,,HIGH
-La Bottega Della Cintura,https://www.labottegadellacintura.com,accessories,96,Y,Y,N,06738360483,2,Shopify,labottegadellacintura@gmail.com,+39 3407547528,LOW
-The Gardiane Boot,https://www.labottegardiane.com,accessories,303,Y,Y,N,,3,Shopify,info@labottegardiane.com,307.00 36 37 38,HIGH
+Handcrafted Luxury Bags Made in Italy,https://www.madbagstore.com,fashion,279,Y,Y,N,18289681001,3,Shopify,ufficiolegalemadbag@gmail.com,1772354726,HIGH
+PIANIGIANI,https://pianigianibags.com,fashion,363,Y,Y,Y,01488370527,4,Shopify,info@pianigianibags.com,+39 0577 806067,HIGH
+QGbags,https://qgbags.com,fashion,96,Y,N,Y,11436760968,2,Shopify,info@qgbags.it,+39 331 1888 358,LOW
+Vistamarebags,https://vistamarebags.com,fashion,96,Y,Y,Y,01607370499,3,Shopify,fahr.julia@gmail.com,01607370499,HIGH
+10corsocomo,https://10corsocomo.com,fashion,144,Y,Y,Y,09579180150,3,Shopify,3rooms@10corsocomo.com,%20+390229002674,HIGH
+Bags Chase,https://bagschase.com,fashion,0,N,N,N,,0,Shopify,,,LOW
+Anema,https://www.anemabags.com,fashion,288,N,Y,N,08793451215,2,Shopify,info@anemabags.com,08793451215,LOW
+Save My Bag,https://savemybag.it,fashion,807,Y,Y,Y,02218400394,4,Shopify,Info@savemybag.it,+39 0546 656774,HIGH
+Luxury Bags and Accessories since 1928,https://www.serapian.com,fashion,258,N,Y,Y,02912880966,3,Shopify,customercare@onlineboutique.serapian.com,+39 02 3859 5666,HIGH
+Ebarrito,https://ebarrito.com,fashion,141,Y,Y,N,,2,Shopify,info@ebarrito.com,+39 0374 936058,LOW
+Mine Perfume Lab,https://www.mineperfumelab.com,beauty,351,Y,Y,Y,08197991212,4,Shopify,customer@mineperfumelab.com,+39 0812135158,HIGH
+Fragrance Perfumes Italia,https://fragrance-perfumes.it,beauty,144,Y,Y,N,,2,Shopify,hello@fragrance-perfumes.com,+386 (0)40 463 006,LOW
+Aquaflor Firenze,https://www.aquaflor.it,beauty,156,Y,Y,N,06094570485,2,Shopify,info@aquaflor.it,+39 055 2343471,LOW
+Omakase Perfumes,https://www.omakase-perfumes.it,beauty,132,Y,Y,N,04144330364,2,Shopify,info@omakase-perfumes.it,04144330364,LOW
+Campomarzio70 The Essential Online Boutique,https://shop.campomarzio70.it,beauty,72,Y,Y,Y,07701661006,3,Shopify,campomarzio2003@pec.it,0669922170,HIGH
+"Perfume, Body care, Hand care, Gift set",https://nonfiction.com,beauty,324,Y,Y,Y,,4,Shopify,help@nonfiction-beauty.com,,HIGH
+Profumeria Nuur,https://profumerianuur.it,beauty,222,Y,Y,N,06920391213,3,Shopify,nuursrl@gmail.com,06920391213,HIGH
+Essentia Puglia,https://essentiapuglia.myshopify.com,beauty,264,Y,Y,N,02434510745,3,Shopify,pagin@ion.corresponding,1613537657,HIGH
+The Perfume Experience,https://theperfumeexperience.in,beauty,120,Y,Y,Y,,3,Shopify,info@theperfumeexperience.in,+919019864119,HIGH
+Zielinski & Rozen Europe,https://zielinskiandrozen.com,beauty,66,Y,Y,Y,,3,Shopify,b2b@zielinskiandrozen.com,140689092,HIGH
+"Rolex, OMEGA & More",https://www.watchesofswitzerland.com,accessories,270,Y,Y,Y,,4,Shopify,DPO@thewosgroup.com,(201) 621-0950,HIGH
+Croatto1901,https://www.croatto.it,accessories,60,Y,Y,N,,2,Shopify,servizioclienti@croatto.it,+39 0432 25031,LOW
+LE JOUR WATCHES,https://www.lejourwatches.ch,accessories,48,N,Y,N,,1,Shopify,info@lejourwatches.ch,1613573221,LOW
+Bremont Watches,https://www.bremont.com,accessories,108,Y,Y,Y,,3,Shopify,customerservice@bremont.com,05414485,HIGH
+DOXA,https://doxa-watches-de.myshopify.com,accessories,993,Y,Y,Y,,4,Shopify,contact.eu@doxawatches.com,+49 72 31 93 12 19,HIGH
+MAEN Watches,https://www.maenwatches.com,accessories,0,N,N,N,,0,Shopify,hello@maenwatches.com,559061-5216,LOW
+Pre,https://www.phigora.com,accessories,18,Y,Y,N,,2,Shopify,info@phigora.com,0121-169710,LOW
+megalith watch,https://www.megalithwatch.com,accessories,72,N,Y,N,,1,Shopify,support@megalithwatch.com,1627367550,LOW
+Timefactors,https://www.timefactors.com,accessories,48,Y,Y,Y,,3,Shopify,%20hello@timefactors.com,0044 114 240 0078,HIGH
+Teddy Baldassarre,https://teddy-baldassarre-watches.myshopify.com,accessories,789,Y,Y,Y,,4,Shopify,sales@teddybaldassarre.com,+12162086736,HIGH
+Lulu and Georgia,https://lulu-and-georgia.myshopify.com,home,3,N,Y,Y,,2,Shopify,support@luluandgeorgia.com,2026-07-29,LOW
+The Rugs,https://the-rugs.com,home,165,Y,Y,N,,2,Shopify,TheRugs-Logo-BEYAZ_160x@2x.png,0691/8363/5772,LOW
+Boutique Rugs,https://boutiquerugs.com,home,171,Y,Y,Y,,3,Shopify,support@boutiquerugs.com,1624019742,HIGH
+abc carpet & home,https://abchome.com,home,9,N,Y,N,,1,Shopify,customerservice@abchome.com,0560/2223/7322,LOW
+Annie Selke,https://www.annieselke.com,home,294,Y,Y,Y,,4,Shopify,,1-888-846-5643,HIGH
+Perennial Rugs,https://perennial-rugs.com,home,192,Y,Y,Y,,3,Shopify,hello@perennial-rugs.com,1772129406,HIGH
+Rugs.cl,https://rugs.cl,home,126,N,Y,N,,1,Shopify,contacto@rugs.cl,1754345920,LOW
+Rugs For Good,https://rugsforgood.com.au,home,3,N,Y,N,,1,Shopify,hello@rugsforgood.com.au,4786-4249,LOW
+Rugs UK,https://www.love-rugs.com,home,240,Y,Y,N,,3,Shopify,info@love-rugs.com,0141 4206565,HIGH
+PF,https://www.pattersonflynn.com,home,20,N,Y,N,,1,Shopify,contactPF@pattersonflynn.com,212.688.7700,LOW
