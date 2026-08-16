@@ -1,20 +1,32 @@
 brand,main_domain,category,sku,Text Only Search,UX Designed,PMI,P.IVA,Score 0-4,Platform,Email,Tel,Priority
-birdsnest,https://www.birdsnest.com.au,fashion,38,Y,Y,N,,2,Shopify,customerservice@shop.birdsnest.com.au,1300 696 378,LOW
-Outcast,https://outcast-clothing.com,fashion,6,N,Y,N,,1,Shopify,customerhappiness@outcast-clothing.com,1680593905,LOW
-Beginning Boutique NZ,https://www.beginningboutique.co.nz,fashion,36,N,Y,N,,1,Shopify,info@beginningboutique.com.au,+17604568587,LOW
-OppoSuits,https://opposuits.com,fashion,270,Y,Y,N,,3,Shopify,info@opposuits.com,1691591351,HIGH
-Sun Peony Coconut,https://sun-peony-coconut-la.myshopify.com,fashion,453,N,Y,N,,2,Shopify,hello@harunayokota.com,3107396620,LOW
-Lacausa,https://lacausa.com,fashion,303,Y,Y,N,,3,Shopify,hello@lacausa.com,1783372240,HIGH
-Nobile,https://nobileitaly.com,fashion,348,Y,Y,Y,05301740758,4,Shopify,calzificio@nobileitaly.com,+39 351 749 9512,HIGH
-Meshki Boutique AU,https://www.meshki.com.au,fashion,618,Y,Y,N,,3,Shopify,hello@meshki.com.au,1738525377,HIGH
-test,https://southerntidellc-dev.myshopify.com,fashion,177,N,Y,Y,,2,Shopify,theskipjack@southerntide.com,1169653844,LOW
-Historical Emporium,https://historicalemporium.com,fashion,219,N,Y,Y,,3,Shopify,,001-408-280-5855,HIGH
-Muc,https://muc-off-eu.myshopify.com,beauty,138,Y,Y,N,,2,Shopify,customerservice@muc-off.com,1202 307791,LOW
-Skön Cosmetics,https://skoncosmetics.com,beauty,516,Y,Y,Y,12296350015,4,Shopify,HeaderDrawer-c@alogo-corpo-tutti-i-pro.ti,12296350015,HIGH
-JPMS Italia,https://jpms-it.myshopify.com,beauty,108,Y,Y,N,14095041001,2,Shopify,tempo-di-asciug@ura-ri.to,14095041001,LOW
-Alvena srl,https://alvena.it,beauty,162,N,Y,Y,10029400156,2,Shopify,info@alvena.it,+39 02 98280138,LOW
-Maria Galland Paris Official Online Shop,https://www.mariagalland.com,beauty,126,Y,Y,N,,2,Shopify,kundenservice@maria-galland.com,00800 642 55 263,LOW
-Streusel,https://happysprinkles.api.myshopify.com,beauty,306,N,Y,N,,2,Shopify,info@happysprinkles.com,1686693061,LOW
-Fattoria della piana,https://fattoria-della-piana.myshopify.com,beauty,0,N,N,N,,0,Shopify,marketing@fattoriadellapiana.it,,LOW
+Wendy Trendy s.r.l.,https://www.wendytrendy.com,fashion,132,Y,Y,Y,02287390971,3,Shopify,info@wendytrendy.com,+39 3341197869,HIGH
+Trendy Boutique,https://sosotrendy.com,fashion,192,Y,Y,N,,2,Shopify,info@trendytrousseau.com,1613663150,LOW
+Face Dunk,https://facedunk.com,beauty,180,Y,Y,Y,,3,Shopify,hello@facedunk.com,01/09/2026,HIGH
+The Face Haus,https://thefacehaus.com,beauty,45,N,Y,Y,,2,Shopify,info@thefacehaus.com,3369-4506-89,LOW
+SHUSA,https://shusa-cosmetics.myshopify.com,beauty,72,Y,Y,N,01577440439,2,Shopify,,01577440439,LOW
+Ongame Lamezia Terme,https://lameziaongame.myshopify.com,beauty,372,Y,Y,N,03931210797,3,Shopify,ongamelamezia@gmail.com,0587 0029,HIGH
+Lebeau Perfumery,https://lebeau-perfumery.myshopify.com,beauty,72,Y,Y,N,04507750232,2,Shopify,info@lebeauperfumery.com,1614279303,LOW
+Spedizioni,https://www.londonstore.it,beauty,177,Y,Y,Y,09834181217,3,Shopify,info@londonstore.it,09834181217,HIGH
+Stanartis,https://stanartis.com,beauty,213,Y,Y,Y,09552061211,4,Shopify,info@stanartis.com,+39 347 579 3475,HIGH
+Eterea Cosmesi Naturale,https://etereacosmesi.it,beauty,108,Y,Y,N,04489780611,2,Shopify,customer@etereacosmesi.it,+39 0823883389,LOW
+of,https://faceshop.it,beauty,72,Y,Y,N,,2,Shopify,info@faceshop.it,+39 081 19172597,LOW
 Blossom Relax & Beauty,https://blossom-relax-beauty.myshopify.com,beauty,48,N,Y,N,,1,Shopify,blossomrelaxebeauty@gmail.com,0679840650,LOW
-VELA,https://velascarves.com,accessories,1000,Y,Y,N,,3,Shopify,care@velascarves.com,1733946244,HIGH
+VULKIT,https://vulkit.com,accessories,225,Y,Y,Y,,4,Shopify,gracie@vulkit.com,020-84823986,HIGH
+Ridge EU,https://eu.ridge.com,accessories,171,N,Y,Y,,2,Shopify,privacy@brandaccess.com,19550884,LOW
+AVIATOR Wallet,https://aviatorwallet.com,accessories,414,N,Y,Y,,3,Shopify,service@aviatorwallet.com,1737827196,HIGH
+Thread®,https://www.threadwallets.com,accessories,108,Y,Y,N,,2,Shopify,contact@threadwallets.com,1613660378,LOW
+Allett Wallets,https://www.all-ett.com,accessories,207,Y,Y,N,,3,Shopify,support@allett.com,1738030649,HIGH
+Mighty Wallet,https://mightywallet.shop,accessories,93,N,Y,Y,,2,Shopify,,1677261943,LOW
+Ryder,https://ryder.id,accessories,36,N,Y,N,14245271460,1,Shopify,contact@ryder.id,1784060679,LOW
+Officine Creative,https://officinecreative.myshopify.com,accessories,147,N,Y,N,02351200445,1,Shopify,contact@officinecreativeitalia.com,+39 02 5501 3935,LOW
+CoolWallet Global,https://www.coolwallet.io,accessories,81,Y,Y,Y,,3,Shopify,support@coolbitx.com,1763615479,HIGH
+Paperwallet®,https://paperwallet.com,accessories,306,N,Y,Y,,3,Shopify,d@a-our-story-products-.data,,HIGH
+Clara Grassi Shop,https://clara-grassi-shop.myshopify.com,home,48,Y,Y,N,03411470168,2,Shopify,info@claragrassi.com,03411470168,LOW
+Cinemuseum,https://cinemuseum.myshopify.com,home,135,Y,Y,Y,,3,Shopify,info@cinemuseum.store,07070678210000008571,HIGH
+Simona Pistorello Art,https://simonapistorello.it,home,78,Y,Y,N,04966100754,2,Shopify,s.pistorello@hotmail.it,04966100754,LOW
+vincent,https://vincent-tulipano.myshopify.com,home,108,N,Y,N,08811110017,1,Shopify,,+39 338 3530668,LOW
+Varsi Art & Lab Art Gallery and Creative Lab,https://www.galleriavarsi.it,home,354,Y,Y,N,16082951001,3,Shopify,info@galleriavarsi.it,+393513940133,HIGH
+Il Giardino del Re Shop,https://ilgiardinodelreshop.it,home,144,Y,Y,Y,03364650733,3,Shopify,info@ilgiardinodelreshop.it,+39 338 568 3268,HIGH
+Casafika,https://casafika.it,home,288,Y,Y,Y,04453060982,4,Shopify,info@casafika.it,+39 380 754 3425,HIGH
+ArcadiaCalzature,https://arcadiacalzature.myshopify.com,home,114,N,Y,N,02024770436,1,Shopify,info@arcadiacalzature.com,02024770436,LOW
+Giulio Celandroni Orchidee,https://celandroni.myshopify.com,home,180,Y,Y,N,,2,Shopify,info@celaorchidee.it,+39 320 7626546,LOW
