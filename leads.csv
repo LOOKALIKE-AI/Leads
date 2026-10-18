@@ -1,27 +1,31 @@
 brand,main_domain,category,sku,Text Only Search,UX Designed,PMI,P.IVA,Score 0-4,Platform,Email,Tel,Priority
-Muc,https://muc-off-eu.myshopify.com,beauty,141,Y,Y,N,,2,Shopify,customerservice@muc-off.com,1202 307791,LOW
-Skön Cosmetics,https://skoncosmetics.com,beauty,516,Y,Y,Y,12296350015,4,Shopify,HeaderDrawer-c@alogo-corpo-tutti-i-pro.ti,12296350015,HIGH
-JPMS Italia,https://jpms-it.myshopify.com,beauty,108,Y,Y,Y,14095041001,3,Shopify,tempo-di-asciug@ura-ri.to,14095041001,HIGH
-Blossom Relax & Beauty,https://blossom-relax-beauty.myshopify.com,beauty,48,N,Y,N,,1,Shopify,blossomrelaxebeauty@gmail.com,0679840650,LOW
-Maria Galland Paris Official Online Shop,https://www.mariagalland.com,beauty,126,Y,Y,Y,,3,Shopify,kundenservice@maria-galland.com,00800 642 55 263,HIGH
+Multi,https://myfacedr.com,beauty,123,Y,Y,N,,2,Shopify,hello@myfacedr.com,1673261439,LOW
+The Face Yoga Secret,https://thefaceyogasecret.com,beauty,30,N,Y,N,10471270966,1,Shopify,romina@thefaceyogasecret.com,10471270966,LOW
+Lebeau Perfumery,https://lebeau-perfumery.myshopify.com,beauty,72,Y,Y,N,04507750232,2,Shopify,info@lebeauperfumery.com,1614279303,LOW
+Eterea Cosmesi Naturale,https://etereacosmesi.it,beauty,108,Y,Y,Y,04489780611,3,Shopify,customer@etereacosmesi.it,+39 0823883389,HIGH
+of,https://faceshop.it,beauty,72,Y,Y,N,07304251213,2,Shopify,info@faceshop.it,+39 081 19172597,LOW
+Spedizioni,https://www.londonstore.it,beauty,177,Y,Y,Y,09834181217,3,Shopify,info@londonstore.it,09834181217,HIGH
+Harmony Castle,https://harmonycastle.it,beauty,372,N,Y,Y,13753541005,3,Shopify,info@harmonycastle.it,13753541005,HIGH
 Stanartis,https://stanartis.com,beauty,216,Y,Y,Y,09552061211,4,Shopify,info@stanartis.com,+39 347 579 3475,HIGH
-Dorby,https://www.dorbypanels.com,beauty,243,N,Y,N,,2,Shopify,info@pegasuspanel.in,00916459999999,LOW
-Stonewall,https://shop.stonewall.org.uk,accessories,69,Y,Y,N,,2,Shopify,merchandise@stonewall.org.uk,02412299,LOW
-Sunday Golf,https://sundaygolf.com,accessories,336,Y,Y,N,,3,Shopify,support@sundaygolf.com,1659667658,HIGH
-YOLOPARK,https://yolopark.myshopify.com,accessories,36,N,Y,Y,,2,Shopify,Lee@yolopark.com,1660296150,LOW
-Green Hills Diamond Brokers,https://greenhillsdiamondbrokers.com,accessories,288,Y,Y,N,,3,Shopify,info@greenhillsdiamondbrokers.com,+16153863400,HIGH
-Bubble,https://hellobubble.myshopify.com,accessories,222,Y,Y,Y,,4,Shopify,endors@hellobubble.com,573-415-0678,HIGH
-Bungie Store,https://bungiestore.com,accessories,0,N,Y,N,,1,Shopify,,,LOW
-SUPER73,https://super73.com,accessories,147,N,Y,Y,,2,Shopify,gdpr.rep@super73.com,1305860-4251-480,LOW
-KMALL09 — 시드니 한국식품 온라인몰,https://kmall09.com.au,accessories,600,N,Y,N,,2,Shopify,,+61272413266,LOW
-ANINE BING Official Site,https://www.aninebing.com,accessories,6,N,Y,N,,1,Shopify,concierge@aninebing.com,1614723812,LOW
-"Disposable Vapes, Vape Juice, Mods",https://vapordna.com,accessories,216,N,Y,N,,2,Shopify,,1677078760,LOW
-Organic Non,https://www.avocadogreenmattress.com,home,288,N,Y,N,,2,Shopify,support@avocadogreenmattress.com,0444/9488/0918,LOW
-Panda London,https://pandalondon.com,home,303,Y,Y,Y,,4,Shopify,info@pandalondon.com,0807/7331/6934,HIGH
-DUSK,https://dusk.com,home,10,Y,Y,Y,,3,Shopify,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICBpZD0ic2hvcExvZ28iCiAgd2lkdGg9IjIwMCIKICBoZWlnaHQ9IjQ1IgogIHZpZXdCb3g9IjAgMCAyMDAgNDUiCiAgZmlsbD0ibm9uZSIKICByb2xlPSJpbWciCj4KICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTYxNl80ODUyNSkiPgogICAgPHBhdGggZD0iTTE1Ny45OCAwLjUyNzM0NFYyMC4xNzFIMTU4LjE2NUwxNzMuOTQgMC41MjczNDRIMTgzLjI3N0wxNjcuMzI4IDIwLjcyODlMMTg4IDQzLjQwODdIMTc3LjM5M0wxNTcuOTggMjIuMzQ4OVY0My40MDg3SDE0OS42OTZWMC41MjczNDRIMTU3Ljk4WiIgZmlsbD0iY3VycmVudENvbG9yIi8+CiAgICA8cGF0aCBkPSJNMTguMTc0NyAwLjYzNTc0MkMyMi42OTEyIDAuNjM1NzQyIDI2LjcwODQgMS41NDc2NSAzMC4yMjYgMy4zNzE0OEMzMy43NDM3IDUuMTk1MyAzNi40Nzk3IDcuNzQ4NjYgMzguNDIzMSAxMS4wNDIzQzQwLjM2NjUgMTQuMzM1OSA0MS4zNDM3IDE4LjAzNzIgNDEuMzQzNyAyMi4xNTY5QzQxLjM0MzcgMjYuMjc2NiA0MC4zNjY1IDMwLjA3NDQgMzguNDEyMyAzMy4zMTQ0QzM2LjQ1OCAzNi41NTQ0IDMzLjY3ODYgMzkuMDY0OCAzMC4wNzQgNDAuODQ1N0MyNi40Njk1IDQyLjYyNjYgMjIuMzQzOCA0My41MTcxIDE3LjY3NTMgNDMuNTE3MUgwVjAuNjM1NzQySDE4LjE3NDd@TE3LjE1NDEgMzYuOTcyOEMyMS43Njg0IDM2Ljk3MjggMjUuNDcwNiAzNS41OTk1IDI4LjI3MTggMzIuODYzOEMzMS4wNjIgMzAuMTI4MSAzMi40NjI2IDI2LjUzNDEgMzIuNDYyNiAyMi4wOTI1QzMyLjQ2MjYgMTcuNjUxIDMxLjA1MTIgMTMuODUzMSAyOC4yMzkyIDExLjE4MTdDMjUuNDI3MiA4LjUxMDM3IDIxLjYzODEgNy4xODAwNSAxNi44NzE5IDcuMTgwMDVIOC4yNzMwOFYzNi45NzI4SDE3LjE1NDFaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4KICAgIDxwYXRoIGQ9Ik02Mi45MDYzIDAuNTI4MzA2VjI1LjQyODlDNjIuOTA2MyAyNy45ODIyIDYzLjI5NzIgMzAuMDA5OSA2NC4wNjggMzEuNTIyNkM2NC44NDk3IDMzLjAzNTMgNjYuMTIgMzQuMjc5OCA2Ny44Nzg4IDM1LjI1NjFDNjkuNjM3NyAzNi4yMzI0IDcxLjY4OTcgMzYuNzI1OSA3NC4wMzQ4IDM2LjcyNTlDNzYuNjA3OSAzNi43MjU5IDc4Ljc5MDIgMzYuMjY0NSA4MC41ODE2IDM1LjMzMTJDODIuMzczIDM0LjM5NzggODMuNjg2NyAzMy4xMzE5IDg0LjUxMTggMzEuNTMzM0M4NS4zMzcgMjkuOTM0OCA4NS43NjA0IDI3LjcxNCA4NS43NjA0IDI0Ljg3MVYwLjUxNzU3OEg5NC4wNDQzVjI1LjkzMzF.QuMDQ,,HIGH
-Pillows.com,https://pillows.com,home,72,Y,Y,N,,2,Shopify,sleepbetter@pillows.com,1-833-217-4484,LOW
-FluffCo,https://fluff.co,home,216,Y,Y,N,,3,Shopify,d@a-fc-gallery-.data,1752836981,HIGH
-Soak&Sleep,https://www.soakandsleep.com,home,705,Y,Y,N,,3,Shopify,info@soakandsleep.com,01483 616444,HIGH
-Putnams,https://putnams.co.uk,home,267,Y,Y,Y,,4,Shopify,info@putnams.co.uk,01752 345678,HIGH
-Thepillowcollection,https://thepillowcollection.com,home,219,N,Y,N,,2,Shopify,hello@thepillowcollection.com,888-617-4556,LOW
-Coop Sleep Goods,https://coopsleepgoods.com,home,363,Y,Y,Y,,4,Shopify,customerservice@coopsleepgoods.com,109.00 3475,HIGH
+Blossom Relax & Beauty,https://blossom-relax-beauty.myshopify.com,beauty,48,N,Y,N,,1,Shopify,blossomrelaxebeauty@gmail.com,0679840650,LOW
+10corsocomo,https://10corsocomo.com,beauty,144,N,Y,Y,09579180150,2,Shopify,3rooms@10corsocomo.com,%20+390229002674,LOW
+AVIATOR Wallet,https://aviatorwallet.com,accessories,414,N,Y,Y,,3,Shopify,service@aviatorwallet.com,1737827196,HIGH
+Thread®,https://www.threadwallets.com,accessories,60,N,Y,N,,1,Shopify,contact@threadwallets.com,1613660378,LOW
+Ridge EU,https://eu.ridge.com,accessories,177,Y,Y,Y,,3,Shopify,privacy@brandaccess.com,19550884,HIGH
+VULKIT,https://vulkit.com,accessories,225,Y,Y,Y,,4,Shopify,gracie@vulkit.com,020-84823986,HIGH
+Paperwallet®,https://paperwallet.com,accessories,306,Y,Y,Y,,4,Shopify,d@a-our-story-products-.data,,HIGH
+Ofishal Leather,https://ofishal.co.nz,accessories,39,N,Y,N,,1,Shopify,Dallas@ofishal.co.nz,1775645194,LOW
+"Handcrafted Goods for Travel, Work & Life by Nappa Dori",https://www.nappadori.com,accessories,99,N,Y,Y,,2,Shopify,careers@nappadori.com,+91 84477 46959,LOW
+70mph Crash,https://www.slimfoldwallet.com,accessories,33,N,Y,N,,1,Shopify,,1682989136,LOW
+Ridge,https://ridge.com,accessories,138,N,Y,Y,,2,Shopify,,,LOW
+Officine Creative,https://officinecreative.myshopify.com,accessories,147,N,Y,N,02351200445,1,Shopify,contact@officinecreativeitalia.com,+39 02 5501 3935,LOW
+EDC/Range/LEO,https://www.koreessentials.com,home,111,Y,Y,Y,,3,Shopify,support@KoreEssentials.com,6193039663,HIGH
+YOLOPARK,https://yolopark.myshopify.com,home,36,N,Y,Y,,2,Shopify,Lee@yolopark.com,1660296150,LOW
+Teleoutlet,https://teleoutlet.no,home,144,N,Y,N,,1,Shopify,TO_Logo_White_RGB_215x@2x.png,0376/7533/5724,LOW
+Bubble,https://hellobubble.myshopify.com,home,222,Y,Y,Y,,4,Shopify,endors@hellobubble.com,573-415-0678,HIGH
+Miami Fruit,https://miamifruit.org,home,156,Y,Y,N,,2,Shopify,support@miamifruit.org,231-3417,LOW
+THE SHOP YOHJI YAMAMOTO,https://theshopyohjiyamamoto.com,home,762,N,Y,Y,,3,Shopify,el.d@aset..Id,1724036993,HIGH
+SUPER73,https://super73.com,home,147,N,Y,Y,,2,Shopify,gdpr.rep@super73.com,1305860-4251-480,LOW
+KMALL09 — 시드니 한국식품 온라인몰,https://kmall09.com.au,home,600,N,Y,N,,2,Shopify,,+61272413266,LOW
+ANINE BING Official Site,https://www.aninebing.com,home,6,N,Y,N,,1,Shopify,concierge@aninebing.com,1614723812,LOW
+Dope Slimes,https://dopeslimes.com,home,180,Y,Y,Y,,3,Shopify,support@dopeslimes.com,02/27/2022,HIGH
